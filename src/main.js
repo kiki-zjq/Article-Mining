@@ -5,9 +5,11 @@ import './plugins/element.js'
 // import $ from 'jquery'
 import axios from 'axios'
 import Vuex from 'vuex'
+import echarts from 'echarts'
 
 Vue.use(Vuex)
 Vue.prototype.$http=axios
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 
 new Vue({

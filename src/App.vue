@@ -21,7 +21,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+body{
+  background-color:#f0f3f4;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,16 +32,22 @@ export default {
   color: #2c3e50;
   /* margin-top: 60px; */
   margin-left:-20px;
-  height:100vh;
+  box-sizing:border-box;
+  min-height:100px;
   width:100vw;
-  background-color: gray;
-  border:gray;
+  position: relative;
+  top:80px;
+  background-color: #f0f3f4;
+  //background-color: green;
+  border:#f0f3f4;
 }
 .view{
-  height:100vh;
-  width:100vw;
-  position: fixed;
-  top:50px;
-  left:200px;
+  background-color: #f0f3f4;
+  //background-color: yellow;
+  // min-height:100vh;
+  width:85%;
+  position: relative;
+  top:0px;
+  left:220px;
 }
 </style>

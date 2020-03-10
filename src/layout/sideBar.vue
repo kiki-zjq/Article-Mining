@@ -6,7 +6,7 @@
         <el-radio-button :label="true">收起</el-radio-button>
     </el-radio-group> -->
     <div class='icon-title'></div>
-    <el-menu default-active="1-4-1" 
+    <el-menu default-active="1" 
         class="el-menu-vertical-demo" 
         @open="handleOpen" 
         @close="handleClose" 
@@ -14,7 +14,7 @@
         text-color="#B5B6BD"
         background-color='#3A3F51'
         active-text-color="#4F94D4">
-    <el-submenu index="1">
+    <!-- <el-submenu index="1">
         <template slot="title">
         <i class="el-icon-location"></i>
         <span slot="title">导航一</span>
@@ -31,26 +31,38 @@
         <span slot="title">选项4</span>
         <el-menu-item index="1-4-1">选项1</el-menu-item>
         </el-submenu>
-    </el-submenu>
-    <el-menu-item index="2">
+    </el-submenu> -->
+
+    <el-menu-item index="1" @click='handleClick(1)'>
+        <i class="el-icon-menu"></i>
+        <span slot="title">导航一</span>
+    </el-menu-item>
+
+    <el-menu-item index="2" @click='handleClick(2)'>
         <i class="el-icon-menu"></i>
         <span slot="title">导航二</span>
     </el-menu-item>
-    <el-menu-item index="3" disabled>
+
+
+    <el-menu-item index="3" @click='handleClick(3)'>
         <i class="el-icon-document"></i>
         <span slot="title">导航三</span>
     </el-menu-item>
-    <el-menu-item index="4">
+
+
+    <el-menu-item index="4" @click='handleClick(4)'>
         <i class="el-icon-setting"></i>
         <span slot="title">导航四</span>
     </el-menu-item>
+    
+    
     </el-menu>
 </div>
 </template>
 
 <style>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
+    width: 12%;
     min-height: 100vh;
     background: #3A3F51;
     position: fixed;
@@ -80,7 +92,19 @@
       },
       handleClose(key, keyPath) {
         console.log(key, keyPath);
+      },
+      
+      handleClick(index){
+        switch(index){
+          case 1:this.$router.push('/');break;
+          case 2:this.$router.push('/algorithm');break;
+          case 3:this.$router.push('/resume#anchor');break;
+          case 4:this.$router.push('/resume#anchor');break;
+        }
+
       }
+
+
     }
   }
 </script>
