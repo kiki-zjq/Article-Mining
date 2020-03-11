@@ -125,7 +125,7 @@ export default {
       this.chart.on('click',function(param){
           console.log(param);
           // this.$emit('clickCloud',param)
-          var currentUrl = 'http://localhost:8081/#/search='+param.name;
+          var currentUrl = 'http://localhost:8081/#/algorithm/search='+param.name;
           window.location.href = currentUrl;  
 
           // const searchWords = param.name;

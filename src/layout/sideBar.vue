@@ -68,6 +68,7 @@
     position: fixed;
     top:50px;
     border:#3A3F51;
+    z-index: 9;
   }
   /* .icon-title{
       color:#B5B6BD;
@@ -98,7 +99,7 @@
         switch(index){
           case 1:this.$router.push('/');break;
           case 2:this.$router.push('/algorithm');break;
-          case 3:this.$router.push('/resume#anchor');break;
+          case 3:this.$router.push('/meet');break;
           case 4:this.$router.push('/resume#anchor');break;
         }
 
