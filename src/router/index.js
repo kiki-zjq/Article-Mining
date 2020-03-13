@@ -5,7 +5,11 @@ import Homepage from '@/views/homepage/index.vue'
 import Algorithm from '@/views/algorithm/index.vue'
 import Search from '@/views/algorithm/search.vue'
 import MeetCount from '@/views/algorithm/meetCount.vue'
+import YearCount from '@/views/algorithm/yearCount.vue'
+import CompareCount from '@/views/algorithm/compareCount.vue'
 import Meet from '@/views/meet/index.vue'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +32,14 @@ export default new Router({
         {
             path:'/algorithm/meetingcount/:search/:meeting',
             component:MeetCount,
+        },
+        {
+            path:'/algorithm/yearcount/:search/:year',
+            component:YearCount,
+        },
+        {
+            path:'/algorithm/comparecount/:search/:compare',
+            component:CompareCount,
         },
         {
             path:'/meet',

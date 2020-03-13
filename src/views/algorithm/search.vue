@@ -21,12 +21,12 @@
                     class='Right-Chart' 
                     id='wordCloud' 
                     height='350px' 
-                    @clickCloud='searchCloud'>
+                    @clickCloud='clickCloud'>
                 </word-cloud-chart >
             </el-col>
             <el-col :span="12">
                <div class='chart-title-left'>该算法的热度趋势</div>
-               <LineChart class='Left-Chart' id='recentYear'></LineChart>
+               <LineChart class='Left-Chart' id='recentYear' @clickLine='clickLine'></LineChart>
             </el-col>
             <el-col :span="12">
                <div class='chart-title-right'>在相关会议中的占比</div>
@@ -102,7 +102,22 @@ export default {
             this.$router.push(
                 `/algorithm/meetingcount/${searchWords}/${meeting}`,
             );
-        }
+        },
+        clickLine(params){
+            const searchWords = this.$route.params.search
+            const year = params.name;
+            this.$router.push(
+                `/algorithm/yearcount/${searchWords}/${year}`,
+            );
+        },
+        clickCloud(params){
+            const searchWords = this.$route.params.search
+            const compareWords = params.name
+            console.log(params.name)
+            this.$router.push(
+                `/algorithm/comparecount/${searchWords}/${compareWords}`,
+            );
+        },
     },
     created(){
        this.cloudData=[

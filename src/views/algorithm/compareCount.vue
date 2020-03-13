@@ -3,13 +3,15 @@
         <el-row class='title-bar'>
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
-                <span style='color:#2da8ff;margin-left:5px'>会议情况分析</span>
+                <span style='color:#2da8ff;margin-left:5px'>
+                    <b>{{search}}</b>与<b>{{compare}}</b>对比
+                    </span>
                 <el-button 
                     type="primary" 
                     style="background-color:#2DA8FF;border:#2DA8FF" 
                     icon="el-icon-search" 
-                    @click='search'>
-                    直接前往该会议
+                    @click='searchCompare'>
+                    直接前往{{compare}}算法
                 </el-button>
             </el-col>
         </el-row>
@@ -20,7 +22,7 @@
                 <div class='intro-place'>{{introduction}}</div>
             </el-col>
             <el-col :span='12' class='count-middle'>
-                <LineChart :width='600' height="380px" @clickLine='clickLine'/>
+                <CompareBar :width='600' height="380px" @clickLine='clickLine'/>
             </el-col>
             <el-col :span='4' class='count-right'>
 
@@ -62,9 +64,14 @@
 </template>
 <script>
 import List from './components/list.vue'
-import LineChart from './components/LineChart';
+import CompareBar from './components/CompareBar';
 import PaperInfo from './components/paperInfo'
 export default {
+    components:{
+        List,
+        CompareBar,
+        PaperInfo,
+    },
     data(){
         return{
             listData:[],
@@ -80,17 +87,17 @@ export default {
             src: '王小虎',
             time: '2016-05-02'
         }, {
-         index:'1',
+         index:'2',
             title: '宇宙无敌第一论文',
             src: '王小虎',
             time: '2016-05-02'
         }, {
-          index:'1',
+          index:'3',
             title: '宇宙无敌第一论文',
             src: '王小虎',
             time: '2016-05-02'
         }, {
-          index:'1',
+          index:'4',
             title: '宇宙无敌第一论文',
             src: '王小虎',
             time: '2016-05-02'
@@ -131,10 +138,13 @@ export default {
             time: '2016-05-02'
         },]
     },
-    components:{
-        List,
-        LineChart,
-        PaperInfo,
+    computed:{
+        search:function(){
+            return this.$route.params.search
+        },
+        compare:function(){
+            return this.$route.params.compare
+        },
     },
     methods:{
         clickLine(params){
@@ -144,6 +154,12 @@ export default {
             console.log(params)
             this.drawer='true'
             this.paperInfo = params
+        },
+        searchCompare(){
+            const searchWords = this.$route.params.compare;
+            this.$router.push(
+                `/algorithm/${searchWords}`,
+            );
         },
         pageChange(){
             this.listData =[{

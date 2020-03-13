@@ -20,7 +20,7 @@
                 <div class='intro-place'>{{introduction}}</div>
             </el-col>
             <el-col :span='12' class='count-middle'>
-                <LineChart :width='600' height="380px" @clickLine='clickLine'/>
+                <CirclePieChart :width='600' height="380px" @clickPie='clickPie'/>
             </el-col>
             <el-col :span='4' class='count-right'>
 
@@ -47,6 +47,8 @@
             </el-col>
         </el-row>
 
+
+
         <el-drawer
             title="论文呈现页"
             :with-header="false"
@@ -55,15 +57,14 @@
             :before-close="handleClose">
             <PaperInfo :data='paperInfo'/>
         </el-drawer>
-    
-    
-    
+
+
     </div>
 </template>
 <script>
 import List from './components/list.vue'
-import LineChart from './components/LineChart';
-import PaperInfo from './components/paperInfo'
+import CirclePieChart from './components/CirclePieChart';
+import PaperInfo from './components/paperInfo';
 export default {
     data(){
         return{
@@ -133,11 +134,11 @@ export default {
     },
     components:{
         List,
-        LineChart,
-        PaperInfo,
+        CirclePieChart,
+        PaperInfo
     },
     methods:{
-        clickLine(params){
+        clickPie(params){
             console.log(params)
         },
         check(params){

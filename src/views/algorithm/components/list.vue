@@ -4,25 +4,45 @@
             :data="tableData"
             stripe
             style="width: 100%">
+
             <el-table-column
             prop="index"
             label=" "
             width="60">
             </el-table-column>
+            
             <el-table-column
             prop="title"
             label="论文题目"
             width="600">
             </el-table-column>
+            
             <el-table-column
             prop="src"
             label="会议来源"
             width="300">
             </el-table-column>
+            
             <el-table-column
             prop="time"
-            label="发表时间">
+            label="发表时间"
+            width="300">
             </el-table-column>
+            
+            <el-table-column
+            label=" ">
+                <template slot-scope="scope">
+                    <el-button 
+                        @click="handleClick(scope.row)" 
+                        type="primary" 
+                        style="background-color:#2DA8FF;border:#2DA8FF" 
+                        icon="el-icon-search" 
+                        size="small">
+                        查询
+                    </el-button>
+                </template>
+            </el-table-column>
+        
         </el-table>
         <el-pagination
             layout="prev, pager, next"
@@ -49,6 +69,9 @@
     methods:{
         handleCurrentChange(val){
             this.$emit('pageChange',val)
+        },
+        handleClick(params){
+            this.$emit('check',params)
         }
     }
   }

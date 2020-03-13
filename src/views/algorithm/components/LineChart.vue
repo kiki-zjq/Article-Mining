@@ -50,19 +50,45 @@ export default {
   },
   methods: {
     initChart() {
+      let callback = function(params){
+          // const searchWords = params.name;
+          // this.$router.push(
+          //       `algorithm/search=${searchWords}`,
+          //   );
+            this.$emit('clickLine',params)
+      }
+      callback = callback.bind(this)
       this.chart = echarts.init(document.getElementById(this.id));
       const option = {
                  title:{
                     left: 'center',
                     text: '2013-2019热度趋势',
                  },
+                 tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    },
+                     formatter: `<b>年份</b>:{b}<br/>
+                                 <b>论文占比</b>:{c}<br/>
+                                 `
+                    // formatter(params){
+                
+                    //   return `<b>年份</b>:${params.name}<br/>
+                    //              <b>论文占比</b>:${params.data}<br/>
+                    //              <b>论文数目</b>`
+                    // }
+                },
                  xAxis: {
                     type: 'category',
-                    data: ['2013','2014','2015', '2016', '2017', '2018', '2019']
+                    data: ['2013','2014','2015', '2016', '2017', '2018', '2019'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
                 },
                 yAxis: {
                     type: 'value',
-                    boundaryGap: [0, '100%']
+                    // boundaryGap: [0, '100%']
                 },
                 series: [{
                     data: [820, 123, 101, 534, 1290, 760, 1320],
@@ -70,16 +96,18 @@ export default {
                     smooth: true,
                     animationEasing: 'cubicInOut',
                     animationDuration: 2600
-                }]
+                },{
+                    data: [820, 123, 101, 534, 1290, 760, 1320],
+                    type: 'bar',
+                    color:"#00C9FF"
+                }]  
       };
   
       //option.series[0].data[1].name='12312312';
       //在这一段地方书写东西来改变上面data里的值。
       
       this.chart.setOption(option);
-      this.chart.on('click',function(param){
-          console.log(param);
-      })
+      this.chart.on('click',callback)
     },
     
   }

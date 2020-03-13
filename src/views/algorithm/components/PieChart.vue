@@ -90,7 +90,7 @@ export default {
             ]
         };
 
-      option.series[0].name =this.$route.params.search.split('=')[1];
+      option.series[0].name =this.$route.params.search;
       //option.series[0].data[1].name='12312312';
       //在这一段地方书写东西来改变上面data里的值。
       
