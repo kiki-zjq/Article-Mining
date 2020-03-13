@@ -39,7 +39,7 @@
                 <div class='cloud-place'>
                     <word-cloud-chart
                         :data="cloudData"
-                        @clickCloud='searchCloud(param)'
+                        @clickCloud='searchCloud'
                     ></word-cloud-chart>
                 </div>
             </el-col>
@@ -192,11 +192,10 @@ export default {
                 `/search=${searchWords}`,
             );
         },
-        searchCloud(param){
-            alert(param);
-            const searchWords = param;
+        searchCloud(params){
+            const searchWords = params.name;
             this.$router.push(
-                `homepage/search=${searchWords}`,
+                `algorithm/${searchWords}`,
             );
         },
     }
@@ -208,13 +207,16 @@ export default {
         background-color: #f0f3f4;
         width:100%;
         padding:20px;
+        .search-bar{
+            margin-left:0
+        }
     }
 
     .search-bar{
         box-sizing: border-box;
         padding:10px;
         background: #fff;
-        margin: 0 0 0 0;
+        margin: 0 -20px 0 0;
         font-size:18px;
         width:100%;
         .el-col {

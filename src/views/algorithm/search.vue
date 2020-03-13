@@ -12,11 +12,17 @@
         <el-row class='charts-place'>
             <el-col :span="12">
                 <div class='chart-title-left'>在相关会议中的占比</div>
-                <CirclePieChart :data='CirclePieChartData' class='Left-Chart' id='conferenceDistribute'></CirclePieChart>
+                <CirclePieChart  class='Left-Chart' id='conferenceDistribute' @clickPie='clickPie'></CirclePieChart>
             </el-col>
             <el-col :span="12">
                 <div class='chart-title-right'>相关算法云图</div>
-                <WordCloudChart :data='cloudData' class='Right-Chart' id='wordCloud' height='350px'></WordCloudChart>
+                <word-cloud-chart 
+                    :data='cloudData' 
+                    class='Right-Chart' 
+                    id='wordCloud' 
+                    height='350px' 
+                    @clickCloud='searchCloud'>
+                </word-cloud-chart >
             </el-col>
             <el-col :span="12">
                <div class='chart-title-left'>该算法的热度趋势</div>
@@ -38,7 +44,7 @@
 import CirclePieChart from './components/CirclePieChart';
 import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
-import WordCloudChart from './components/WordCloudChartV2';
+import WordCloudChart from './components/WordCloudChart';
 
 // import {getMeetPercent} from '@/api/searchMeeting.js';
 
@@ -83,7 +89,20 @@ export default {
             //         console.log(this.CirclePieChartData)
             //         })
             //     )
-            }
+            },
+        searchCloud(params){
+            const searchWords = params.name;
+            this.$router.push(
+                `/algorithm/search=${searchWords}`,
+            );
+        },
+        clickPie(params){
+            const searchWords = this.$route.params.search
+            const meeting = params.name;
+            this.$router.push(
+                `/algorithm/meetingcount/${searchWords}/${meeting}`,
+            );
+        }
     },
     created(){
        this.cloudData=[
@@ -195,13 +214,17 @@ export default {
         padding:20px;
         padding-top:0;
         margin-top:-20px;
+        .search-bar{
+            margin-left:0
+        }
     }
 
     .search-bar{
         box-sizing: border-box;
         padding:10px;
         background: #fff;
-        margin: 0 20px 0 0;
+        margin: 0 -20px 0 0;
+
         width:100%;
         font-size:18px;
         .el-col {

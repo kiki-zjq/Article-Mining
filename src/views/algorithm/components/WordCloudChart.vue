@@ -53,6 +53,14 @@ export default {
   methods: {
     initChart() {
       this.chart = echarts.init(document.getElementById(this.id));
+      let callback = function(params){
+          // const searchWords = params.name;
+          // this.$router.push(
+          //       `algorithm/search=${searchWords}`,
+          //   );
+            this.$emit('clickCloud',params)
+      }
+      callback = callback.bind(this)
       const option = {
         title: {
           text: this.title,
@@ -122,17 +130,18 @@ export default {
         ]
       };
       this.chart.setOption(option);
-      this.chart.on('click',function(param){
-          console.log(param);
-          // this.$emit('clickCloud',param)
-          var currentUrl = 'http://localhost:8081/#/algorithm/search='+param.name;
-          window.location.href = currentUrl;  
+      // this.chart.on('click',function(param){
+      //     console.log(param);
+      //     // this.$emit('clickCloud',param)
+      //     var currentUrl = 'http://localhost:8081/#/algorithm/search='+param.name;
+      //     window.location.href = currentUrl;  
 
-          // const searchWords = param.name;
-          //   this.$router.push(
-          //       `homepage/search=${searchWords}`,
-          //   );
-      })
+      //     // const searchWords = param.name;
+      //     //   this.$router.push(
+      //     //       `homepage/search=${searchWords}`,
+      //     //   );
+      // })
+      this.chart.on('click',callback);
     },
     
   }
