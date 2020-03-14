@@ -8,7 +8,8 @@ import MeetCount from '@/views/algorithm/meetCount.vue'
 import YearCount from '@/views/algorithm/yearCount.vue'
 import CompareCount from '@/views/algorithm/compareCount.vue'
 import Meet from '@/views/meet/index.vue'
-
+import Meeting from '@/views/meeting/index.vue'
+import Query from '@/views/query/index.vue'
 
 Vue.use(Router)
 
@@ -44,6 +45,14 @@ export default new Router({
         {
             path:'/meet',
             component:Meet,
+        },
+        {
+            path:'/meeting',
+            component:Meeting,
+        },
+        {
+            path:'/query',
+            component:Query,
         }
     ]
 

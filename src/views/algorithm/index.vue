@@ -239,7 +239,7 @@ export default {
         padding:10px;
         margin: 20px 0;
         background: #fff;
-        height:800px;
+        min-height:500px;
         font-size:18px;
         
         .el-col {

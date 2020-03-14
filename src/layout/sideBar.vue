@@ -40,19 +40,24 @@
 
     <el-menu-item index="2" @click='handleClick(2)'>
         <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
+        <span slot="title">算法</span>
     </el-menu-item>
 
 
     <el-menu-item index="3" @click='handleClick(3)'>
         <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
+        <span slot="title">会议一</span>
     </el-menu-item>
 
 
     <el-menu-item index="4" @click='handleClick(4)'>
         <i class="el-icon-setting"></i>
-        <span slot="title">导航四</span>
+        <span slot="title">会议二</span>
+    </el-menu-item>
+
+    <el-menu-item index="5" @click='handleClick(5)'>
+        <i class="el-icon-setting"></i>
+        <span slot="title">查询</span>
     </el-menu-item>
     
     
@@ -100,7 +105,8 @@
           case 1:this.$router.push('/');break;
           case 2:this.$router.push('/algorithm');break;
           case 3:this.$router.push('/meet');break;
-          case 4:this.$router.push('/resume#anchor');break;
+          case 4:this.$router.push('/meeting');break;
+          case 5:this.$router.push('/query');break;
         }
 
       }
