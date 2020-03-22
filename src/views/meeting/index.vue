@@ -8,7 +8,7 @@
         </el-row>
 
         <el-row class='conference-place'>
-            <el-carousel :interval="4000" type="card" height="400px" autoplay=true>
+            <el-carousel :interval="2500" type="card" height="400px" autoplay=true>
 
                 <el-carousel-item >
                     <div class='blockItem' v-on:click='title="HICSS"'>

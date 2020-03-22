@@ -28,7 +28,10 @@ export default {
       default: "400px"
     },
     data: {
-      type: Function,
+      type: Array,
+      default:function(){
+        return []
+      }
     },
     title: {
       type: String,
@@ -42,6 +45,12 @@ export default {
   },
   mounted() {
     this.initChart();
+  },
+  watch:{
+    data:function(newData){
+      console.log(newData)
+      this.initChart();
+    }
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -74,10 +83,10 @@ export default {
         
          visualMap: {
             show: false,
-            min: -1000,
-            max: 20000,
+            min: 0,
+            max: 600,
             inRange: {
-                colorLightness: [0.9, 0.2]
+                colorLightness: [0.9, 0.4]
             }
         },
 
@@ -94,7 +103,7 @@ export default {
             //用来调整词的旋转方向，，[0,0]--代表着没有角度，也就是词为水平方向，需要设置角度参考注释内容
             // rotationRange: [-45, 0, 45, 90],
             // rotationRange: [ 0,90],
-            rotationRange: [0, 0],
+            rotationRange: [0, 90],
             //随机生成字体颜色
             // maskImage: maskImage,
             textStyle: {

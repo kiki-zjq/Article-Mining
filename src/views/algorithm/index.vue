@@ -38,6 +38,7 @@
                 <SelectBar />
                 <div class='cloud-place'>
                     <word-cloud-chart
+                        ref="wordCloud"
                         :data="cloudData"
                         @clickCloud='searchCloud'
                     ></word-cloud-chart>
@@ -50,6 +51,7 @@
 <script>
 import WordCloudChart from './components/WordCloudChart'
 import SelectBar from './components/SelectBar'
+import {fetchWordCloud} from '@/request/api'
 
 export default {
     data() {
@@ -89,102 +91,109 @@ export default {
     },
     methods: {
         _getAllData() {
-            this.cloudData=[
-                {
-                name: "穷举法",
-                value: 9898,
-                year:2019,
-                //在wordcloudchart.vue中的param.data属性里有name value 和 year
-                },
-                {
-                name: "K-means",
-                value: 1991
-                },
-                {
-                name: "K-means",
-                value: 9386
-                },
-                {
-                name: "匈牙利算法",
-                value: 7500
-                },
-                {
-                name: "回溯法",
-                value: 7500
-                },
-                {
-                name: "Bellman算法",
-                value: 6500
-                },
-                {
-                name: "Vector-Direction",
-                value: 6500
-                },
-                {
-                name: "拉格朗日对数法",
-                value: 6000
-                },
-                {
-                name: "SVM向量机",
-                value: 4500
-                },
-                {
-                name: "匈牙利算法",
-                value: 3800
-                },
-                {
-                name: "朴素贝叶斯",
-                value: 3000
-                },
-                {
-                name: "协同过滤",
-                value: 2500
-                },
-                {
-                name: "推荐算法",
-                value: 2300
-                },
-                {
-                name: "匈牙利算法",
-                value: 2000
-                },
-                {
-                name: "协同过滤",
-                value: 1900
-                },
-                {
-                name: "自然语言处理",
-                value: 1800
-                },
-                {
-                name: "推荐算法",
-                value: 1700
-                },
-                {
-                name: "数据挖掘",
-                value: 1600
-                },
-                {
-                name: "郝人定",
-                value: 1500
-                },
-                {
-                name: "史胜天",
-                value: 1200
-                },
-                {
-                name: "王全会",
-                value: 1100
-                },
-                {
-                name: "郝继斐",
-                value: 900
-                },
-                {
-                name: "含哥又懂了",
-                value: 800
-                },
-            ]
+            // this.cloudData=[
+            //     {
+            //     name: "穷举法",
+            //     value: 9898,
+            //     year:2019,
+            //     //在wordcloudchart.vue中的param.data属性里有name value 和 year
+            //     },
+            //     {
+            //     name: "K-means",
+            //     value: 1991
+            //     },
+            //     {
+            //     name: "K-means",
+            //     value: 9386
+            //     },
+            //     {
+            //     name: "匈牙利算法",
+            //     value: 7500
+            //     },
+            //     {
+            //     name: "回溯法",
+            //     value: 7500
+            //     },
+            //     {
+            //     name: "Bellman算法",
+            //     value: 6500
+            //     },
+            //     {
+            //     name: "Vector-Direction",
+            //     value: 6500
+            //     },
+            //     {
+            //     name: "拉格朗日对数法",
+            //     value: 6000
+            //     },
+            //     {
+            //     name: "SVM向量机",
+            //     value: 4500
+            //     },
+            //     {
+            //     name: "匈牙利算法",
+            //     value: 3800
+            //     },
+            //     {
+            //     name: "朴素贝叶斯",
+            //     value: 3000
+            //     },
+            //     {
+            //     name: "协同过滤",
+            //     value: 2500
+            //     },
+            //     {
+            //     name: "推荐算法",
+            //     value: 2300
+            //     },
+            //     {
+            //     name: "匈牙利算法",
+            //     value: 2000
+            //     },
+            //     {
+            //     name: "协同过滤",
+            //     value: 1900
+            //     },
+            //     {
+            //     name: "自然语言处理",
+            //     value: 1800
+            //     },
+            //     {
+            //     name: "推荐算法",
+            //     value: 1700
+            //     },
+            //     {
+            //     name: "数据挖掘",
+            //     value: 1600
+            //     },
+            //     {
+            //     name: "郝人定",
+            //     value: 1500
+            //     },
+            //     {
+            //     name: "史胜天",
+            //     value: 1200
+            //     },
+            //     {
+            //     name: "王全会",
+            //     value: 1100
+            //     },
+            //     {
+            //     name: "郝继斐",
+            //     value: 900
+            //     },
+            //     {
+            //     name: "含哥又懂了",
+            //     value: 800
+            //     },
+            // ]
+            fetchWordCloud().then((res)=>{
+                console.log(res.data.mapList)
+                // this.cloudData=function(){
+                //     return [...res.data.mapList]
+                // }
+                this.cloudData = res.data.mapList
+            })
         },
         search(){
             const searchWords = this.searchWords;
@@ -195,7 +204,7 @@ export default {
         searchCloud(params){
             const searchWords = params.name;
             this.$router.push(
-                `algorithm/${searchWords}`,
+                `/algorithm/${searchWords}`,
             );
         },
     }

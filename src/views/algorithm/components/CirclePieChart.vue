@@ -26,7 +26,10 @@ export default {
       default: "350px"
     },
     data: {
-      type: Function,
+      type: Array,
+      default:function(){
+        return []
+      }
     },
     title: {
       type: String,
@@ -38,6 +41,7 @@ export default {
       chart: null
     };
   },
+  
   mounted() {
     this.initChart();
   },
@@ -74,7 +78,7 @@ export default {
             legend: {
                 orient: 'vertical',
                 left: 10,
-                data: ['会议1', '会议2', '会议3', '会议4', '会议5']
+                data: ['AAAI', 'ACM', 'MK', 'MIT', 'ACL']
             },
             series: [
                 {
@@ -101,16 +105,12 @@ export default {
                         }
                     },
                     data: [
-                        {value: 335, name: '会议1'},
-                        {value: 310, name: '会议2'},
-                        {value: 234, name: '会议3'},
-                        {value: 135, name: '会议4'},
-                        {value: 1548, name: '会议5'}
+                        
                     ]
                 }
             ]
         };
-  
+      option.series[0].data = this.data
       //option.series[0].data[1].name='12312312';
       //在这一段地方书写东西来改变上面data里的值。
       

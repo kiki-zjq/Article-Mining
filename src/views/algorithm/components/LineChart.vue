@@ -38,6 +38,12 @@ export default {
       chart: null
     };
   },
+  watch:{
+    data:function(newData){
+      console.log(newData)
+      this.initChart();
+    }
+  },
   mounted() {
     this.initChart();
   },
@@ -81,7 +87,7 @@ export default {
                 },
                  xAxis: {
                     type: 'category',
-                    data: ['2013','2014','2015', '2016', '2017', '2018', '2019'],
+                    data: ['2014','2015', '2016', '2017', '2018', '2019'],
                     axisTick: {
                         alignWithLabel: true
                     }
@@ -91,18 +97,19 @@ export default {
                     // boundaryGap: [0, '100%']
                 },
                 series: [{
-                    data: [820, 123, 101, 534, 1290, 760, 1320],
+                    data: [ 123, 101, 534, 1290, 760, 1320],
                     type: 'line',
                     smooth: true,
                     animationEasing: 'cubicInOut',
                     animationDuration: 2600
                 },{
-                    data: [820, 123, 101, 534, 1290, 760, 1320],
+                    data: [ 123, 101, 534, 1290, 760, 1320],
                     type: 'bar',
                     color:"#00C9FF"
                 }]  
       };
-  
+      option.series[0].data = this.data
+      option.series[1].data = this.data
       //option.series[0].data[1].name='12312312';
       //在这一段地方书写东西来改变上面data里的值。
       
