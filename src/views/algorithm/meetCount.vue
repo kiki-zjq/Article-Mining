@@ -20,7 +20,7 @@
                 <div class='intro-place'>{{introduction}}</div>
             </el-col>
             <el-col :span='12' class='count-middle'>
-                <LineChart :width='600' height="380px" @clickLine='clickLine'/>
+                <LineChart :data='lineData' :width='600' height="380px" @clickLine='clickLine'/>
             </el-col>
             <el-col :span='4' class='count-right'>
 
@@ -64,9 +64,11 @@
 import List from './components/list.vue'
 import LineChart from './components/LineChart';
 import PaperInfo from './components/paperInfo'
+import {fetchWordCloud} from '@/request/api'
 export default {
     data(){
         return{
+            lineData:[],
             listData:[],
             drawer:false,
             direction:'rtl',
@@ -130,6 +132,16 @@ export default {
             src: '王小虎',
             time: '2016-05-02'
         },]
+        fetchWordCloud().then((res)=>{
+                    console.log(res.data.mapList)
+                    // this.cloudData=function(){
+                    //     return [...res.data.mapList]
+                    // 
+                    this.lineData = [
+                        res.data.heat2014,res.data.heat2015,res.data.heat2016,
+                        res.data.heat2017,res.data.heat2018,res.data.heat2019
+                    ]
+                })
     },
     components:{
         List,

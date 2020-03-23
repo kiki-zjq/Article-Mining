@@ -14,19 +14,19 @@
             <el-table-column
             prop="title"
             label="论文题目"
-            width="600">
+            width="200">
             </el-table-column>
             
             <el-table-column
             prop="src"
             label="会议来源"
-            width="300">
+            width="150">
             </el-table-column>
             
             <el-table-column
             prop="time"
             label="发表时间"
-            width="300">
+            width="150">
             </el-table-column>
             
         

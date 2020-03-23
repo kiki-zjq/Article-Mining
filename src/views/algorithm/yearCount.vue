@@ -20,7 +20,7 @@
                 <div class='intro-place'>{{introduction}}</div>
             </el-col>
             <el-col :span='12' class='count-middle'>
-                <CirclePieChart :width='600' height="380px" @clickPie='clickPie'/>
+                <CirclePieChart :data='circleData' :width='600' height="380px" @clickPie='clickPie'/>
             </el-col>
             <el-col :span='4' class='count-right'>
 
@@ -65,6 +65,7 @@
 import List from './components/list.vue'
 import CirclePieChart from './components/CirclePieChart';
 import PaperInfo from './components/paperInfo';
+import {fetchWordCloud} from '@/request/api'
 export default {
     data(){
         return{
@@ -72,6 +73,7 @@ export default {
             drawer:false,
             direction:'rtl',
             paperInfo:{},
+            circleData:[],
         }
     },
     mounted(){
@@ -131,6 +133,16 @@ export default {
             src: '王小虎',
             time: '2016-05-02'
         },]
+        fetchWordCloud().then((res)=>{
+
+                    this.circleData=[
+                        {value: res.data.percentAAAI, name: 'AAAI'},
+                        {value: res.data.percentACM, name: 'ACM'},
+                        {value: res.data.percentMK, name: 'MK'},
+                        {value: res.data.percentMIT, name: 'MIT'},
+                        {value: res.data.percentACL, name: 'ACL'}
+                    ]
+                })
     },
     components:{
         List,
