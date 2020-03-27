@@ -63,7 +63,11 @@ export default {
         this.number=500;//日后改成请求获取
       },
       search(){
-        alert(this.title);
+        
+        const searchWords = this.title;
+            this.$router.push(
+                `/meeting/search=${searchWords}`,
+          );
       }
     },
 }
