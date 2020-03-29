@@ -1,6 +1,6 @@
 <template>
     <div class='dashbord'>
-        <el-row class='search-bar'>
+        <el-row class='search-bar' :gutter="40">
             <el-col :span='24'>
                 <span style='background:#2da8ff'>&nbsp;</span>
                 <span style='color:#2da8ff;margin-left:5px'>算法查询</span>
@@ -9,10 +9,11 @@
             </el-col>
         </el-row>
 
-        <el-row class='charts-place'>
+        <el-row class='charts-place' :gutter="20">
             <el-col :span="12">
                 <div class='chart-title-left'>在相关会议中的占比</div>
                 <CirclePieChart  
+                    v-loading="loading1"
                     class='Left-Chart' 
                     :data='circleData'
                     id='conferenceDistribute' 
@@ -21,7 +22,8 @@
             </el-col>
             <el-col :span="12">
                 <div class='chart-title-right'>相关算法云图</div>
-                <word-cloud-chart 
+                <word-cloud-chart
+                    v-loading="loading2"
                     :data='cloudData' 
                     class='Right-Chart' 
                     id='wordCloud' 
@@ -32,6 +34,7 @@
             <el-col :span="12">
                <div class='chart-title-left'>该算法的热度趋势</div>
                 <LineChart 
+                    v-loading="loading3"
                     :data='lineData' 
                     class='Left-Chart' 
                     id='recentYear' 
@@ -55,7 +58,7 @@ import CirclePieChart from './components/CirclePieChart';
 import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
 import WordCloudChart from './components/WordCloudChart';
-import {fetchWordCloud} from '@/request/api'
+import {fetchCloudChart,fetchPieChart,fetchBarChart} from '@/request/api'
 // import {getMeetPercent} from '@/api/searchMeeting.js';
 
 export default {
@@ -67,6 +70,9 @@ export default {
             circleData:[],
             lineData:[],
             CirclePieChartData:[],
+            loading2:true,
+            loading1:true,
+            loading3:true,
         }
     },
     computed:{
@@ -83,18 +89,9 @@ export default {
             );
             
         },
-        _getAllData() {
-                fetchWordCloud().then((res)=>{
-                    console.log(res.data.mapList)
-                    // this.cloudData=function(){
-                    //     return [...res.data.mapList]
-                    // }
-                    let cloudData = []
-                    res.data.mapList.forEach((data)=>{
-                        if (data.value>10)
-                            cloudData.push(data)
-                    })
-                    this.cloudData = cloudData
+        getPiedata(){
+            fetchPieChart().then((res)=>{
+                    this.loading1=false;
                     this.circleData=[
                         {value: res.data.percentAAAI, name: 'AAAI'},
                         {value: res.data.percentACM, name: 'ACM'},
@@ -102,11 +99,39 @@ export default {
                         {value: res.data.percentMIT, name: 'MIT'},
                         {value: res.data.percentACL, name: 'ACL'}
                     ]
+                    this.getBarData();
+                })
+        },
+        getBarData(){
+            fetchBarChart().then((res)=>{
+                    this.loading3=false;
                     this.lineData = [
                         res.data.heat2014,res.data.heat2015,res.data.heat2016,
                         res.data.heat2017,res.data.heat2018,res.data.heat2019
                     ]
+                    this.getCloudData();
                 })
+        },
+        getCloudData(){
+            fetchCloudChart().then((res)=>{
+                    this.loading2=false;
+                    // this.cloudData=function(){
+                    //     return [...res.data.mapList]
+                    // }
+                    // let cloudData = []
+                    // res.data.mapList.forEach((data)=>{
+                    //     if (data.value>10)
+                    //         cloudData.push(data)
+                    // })
+                    this.cloudData = res.data.mapList
+    
+                    
+                })
+        },
+        _getAllData() {
+                
+                
+                
             },
         searchCloud(params){
             const searchWords = params.name;
@@ -138,7 +163,7 @@ export default {
         },
     },
     created(){
-            this._getAllData()
+            this.getPiedata()
     },
     components:{
         CirclePieChart,
@@ -167,10 +192,11 @@ export default {
     }
 
     .search-bar{
+        box-shadow: inset 20px 0px #f0f3f4;
         box-sizing: border-box;
         padding:10px;
         background: #fff;
-        margin: 0 -20px 0 0;
+        margin: 0 -20px 0 0px;
 
         width:100%;
         font-size:18px;
@@ -197,7 +223,7 @@ export default {
         }
         .chart-title-left{
             background: #fff;
-            box-shadow: inset -20px 0px #f0f3f4;
+            // box-shadow: inset -20px 0px #f0f3f4;
             padding:5px 20px;
             box-sizing:border-box;
             color:#2da8ff;
@@ -205,7 +231,7 @@ export default {
         }
         .chart-title-right{
             background: #fff;
-            box-shadow: inset 20px 0px #f0f3f4;
+            //box-shadow: inset 20px 0px #f0f3f4;
             padding:5px 40px;
             box-sizing:border-box;
             color:#2da8ff;
@@ -215,13 +241,13 @@ export default {
             background: #fff;
             padding:20px;
             box-sizing: border-box;
-            box-shadow: inset -20px 0px #f0f3f4;
+            //box-shadow: inset -20px 0px #f0f3f4;
         }
         .Right-Chart{
             background: #fff;
             padding:20px 20px 20px 40px;
             box-sizing: border-box;
-            box-shadow: inset 20px 0px #f0f3f4;
+            //box-shadow: inset 20px 0px #f0f3f4;
         }
     }
 </style>

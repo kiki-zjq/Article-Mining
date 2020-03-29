@@ -1,6 +1,6 @@
 <template>
     <div class='dashbord'>
-        <el-row class='search-bar'>
+        <el-row class='search-bar-index'>
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
                 <span style='color:#2da8ff;margin-left:5px'>算法查询</span>
@@ -38,6 +38,7 @@
                 <SelectBar />
                 <div class='cloud-place'>
                     <word-cloud-chart
+                        v-loading="loading1"
                         ref="wordCloud"
                         :data="cloudData"
                         @clickCloud='searchCloud'
@@ -51,11 +52,12 @@
 <script>
 import WordCloudChart from './components/WordCloudChart'
 import SelectBar from './components/SelectBar'
-import {fetchWordCloud} from '@/request/api'
+import {fetchCloudChart} from '@/request/api'
 
 export default {
     data() {
     return {
+        loading1:true,
       searchWords: '',
       domain:'',
       domains: [{
@@ -187,12 +189,13 @@ export default {
             //     value: 800
             //     },
             // ]
-            fetchWordCloud().then((res)=>{
+            fetchCloudChart().then((res)=>{
                 console.log(res.data.mapList)
                 // this.cloudData=function(){
                 //     return [...res.data.mapList]
                 // }
                 this.cloudData = res.data.mapList
+                this.loading1=false;
             })
         },
         search(){
@@ -216,12 +219,12 @@ export default {
         background-color: #f0f3f4;
         width:100%;
         padding:20px;
-        .search-bar{
+        .search-bar-index{
             margin-left:0
         }
     }
 
-    .search-bar{
+    .search-bar-index{
         box-sizing: border-box;
         padding:10px;
         background: #fff;

@@ -65,7 +65,7 @@
 import List from './components/list.vue'
 import CirclePieChart from './components/CirclePieChart';
 import PaperInfo from './components/paperInfo';
-import {fetchWordCloud} from '@/request/api'
+import {fetchPieChart} from '@/request/api'
 export default {
     data(){
         return{
@@ -133,7 +133,7 @@ export default {
             src: '王小虎',
             time: '2016-05-02'
         },]
-        fetchWordCloud().then((res)=>{
+        fetchPieChart().then((res)=>{
 
                     this.circleData=[
                         {value: res.data.percentAAAI, name: 'AAAI'},
