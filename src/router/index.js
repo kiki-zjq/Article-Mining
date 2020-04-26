@@ -12,6 +12,7 @@ import Meeting from '@/views/meeting/index.vue'
 import MeetSearch from '@/views/meeting/search.vue'
 import Query from '@/views/query/index.vue'
 
+
 Vue.use(Router)
 
 export default new Router({

@@ -1,6 +1,6 @@
 <template>
     <div class='dashbord'>
-        <el-row class='search-bar'>
+        <el-row class='search-bar query-bar'>
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
                 <span style='color:#2da8ff;margin-left:5px'>算法查询</span>
@@ -87,7 +87,7 @@ export default {
         width:100%;
         padding:20px;
         .search-bar{
-            margin-left:0
+            margin-left:-20px;
         }
     }
 

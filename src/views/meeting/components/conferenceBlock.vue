@@ -1,12 +1,41 @@
 <template>
     <section :class="theme" :style="{ height:height,width:width }">
-      <div class="title">
-        {{title}}
-        <div class='search' style='float:right'>
-          <el-button icon="el-icon-search" circle @click='search'></el-button>
+      <el-row>
+        <div class="title">
+          {{title}}
+          <div class='search' style='float:right'>
+            <el-button icon="el-icon-search" circle @click='search'></el-button>
+          </div>
         </div>
-      </div>
-      <div class='number'>
+      </el-row>
+
+      <el-row>
+        <el-col :span="6">
+          <div class="number">
+           <p>论文数</p>
+           <div class='article-number'>{{number}}</div>
+          </div>
+        </el-col>
+
+        <el-col :span="10">
+          <div class="time">
+          <p>时间</p>
+            <div>
+              <span style='font-size:14px;font-weight:bold'>{{start}}年</span>
+              至 
+              <span style='font-size:14px;font-weight:bold'>{{end}}年</span>
+            </div>
+          </div>
+        </el-col>
+
+      </el-row>
+      
+      <el-row>
+        <el-col>
+          <p>主办方/出版社：{{sponsor}}</p>
+        </el-col>
+      </el-row>
+      <!-- <div class='number'>
         <p>论文数</p>
         <div class='article-number'>{{number}}</div>
       </div>
@@ -18,7 +47,8 @@
             至 
             <span style='font-size:14px;font-weight:bold'>{{end}}年</span>
           </div>
-      </div>
+      </div> -->
+
     </section>
 </template>
 
@@ -54,6 +84,10 @@ export default {
         type: String,
         default: "2019"
       },
+      sponsor:{
+        type:String,
+        default:'未知',
+      }
     },
     mounted(){
       this.init();
@@ -111,8 +145,8 @@ section {
     background-image: linear-gradient(#f0cb35, #C02425);
 }
 .title{
-  height:50%;
-  font-size:24px;
+  height:100px;
+  font-size:36px;
   font-weight: bold;
   color:white;
 }
@@ -123,13 +157,13 @@ section {
   color:white;
 }
 .number{
-  width:40%;
-  float:left;
+  //float:left;
   border-right:white 2px solid;
 }
 .time{
   margin-left:20px;
-  float:left;
+  text-align: left;
+  //float:left;
  }
 .content {
   margin-left: 6px;

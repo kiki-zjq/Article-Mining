@@ -43,6 +43,7 @@
                         :data="cloudData"
                         @clickCloud='searchCloud'
                     ></word-cloud-chart>
+                    <RectTree/>
                 </div>
             </el-col>
         </el-row>
@@ -53,7 +54,7 @@
 import WordCloudChart from './components/WordCloudChart'
 import SelectBar from './components/SelectBar'
 import {fetchCloudChart} from '@/request/api'
-
+import RectTree from './components/RectChart'
 export default {
     data() {
     return {
@@ -87,6 +88,7 @@ export default {
     components: {
         WordCloudChart,
         SelectBar,
+        RectTree,
     },
     created() {
         this._getAllData()

@@ -71,7 +71,8 @@
                     <div class='intro-place'>{{introduction}}</div>
             </el-col>
             <el-col class='disp-right' :span='12'>
-                <scatter-chart></scatter-chart>
+                <!-- <scatter-chart></scatter-chart> -->
+                <RadarChart/>
             </el-col>
         </el-row>
     </div>
@@ -79,7 +80,8 @@
 
 <script>
 import ConferenceBlock from './components/conferenceBlock.vue'
-import ScatterChart from './components/ScatterChart.vue'
+// import ScatterChart from './components/ScatterChart.vue'
+import RadarChart from './components/radarChart.vue'
 export default {
     data(){
         return{
@@ -88,7 +90,8 @@ export default {
     },
     components:{
         ConferenceBlock,
-        ScatterChart,
+        // ScatterChart,
+        RadarChart,
     },
     computed:{
         introduction(){

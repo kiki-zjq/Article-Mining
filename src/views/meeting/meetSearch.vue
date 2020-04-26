@@ -3,7 +3,7 @@
         <el-row class='title-bar'>
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
-                <span style='color:#2da8ff;margin-left:5px'>会议情况分析:<span style="font-weight:bold;color:orange">{{meetName}}</span></span>
+                <span style='color:#2da8ff;margin-left:5px'>会议情况分析</span>
                 <el-button 
                     type="primary" 
                     style="background-color:#2DA8FF;border:#2DA8FF" 
@@ -62,11 +62,10 @@
 </template>
 <script>
 import List from './components/list.vue'
-// import LineChart from './components/LineChart';
-// import PaperInfo from './components/paperInfo'
+import LineChart from './components/LineChart';
+import PaperInfo from './components/paperInfo'
 import {fetchBarChart} from '@/request/api'
 export default {
-
     data(){
         return{
             lineData:[],
@@ -74,11 +73,9 @@ export default {
             drawer:false,
             direction:'rtl',
             paperInfo:{},
-            meetName:'',
         }
     },
     mounted(){
-        this.meetName = this.$route.params.search.split("=")[1];
         this.listData =[{
             index:'1',
             title: '宇宙无敌第一论文',
@@ -148,8 +145,8 @@ export default {
     },
     components:{
         List,
-        // LineChart,
-        // PaperInfo,
+        LineChart,
+        PaperInfo,
     },
     methods:{
         clickLine(params){
