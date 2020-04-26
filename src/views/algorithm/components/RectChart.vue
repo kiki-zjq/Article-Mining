@@ -54,7 +54,18 @@ export default {
     this.chart = null;
   },
   methods: {
+      
     initChart() {
+
+        let callback = function(param){
+            if(param.data && !param.data.children){
+                console.log(param)
+                this.$emit('clickCloud',param.data)
+            }
+            
+      }
+      callback = callback.bind(this)
+
       this.chart = echarts.init(document.getElementById(this.id),'setup');
       const option = {
             series: [{
@@ -533,14 +544,7 @@ export default {
       //在这一段地方书写东西来改变上面data里的值。
       
       this.chart.setOption(option);
-      this.chart.on('click',function(param){
-           if (typeof param.seriesIndex == 'undefined') {
-                    return;
-                }
-            if (param.type == 'click') {
-                    alert(param.name);
-                }
-      })
+      this.chart.on('click',callback)
     },
     
   }

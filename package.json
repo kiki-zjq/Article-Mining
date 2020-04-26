@@ -32,13 +32,13 @@
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
-    "root": false,//true
+    "root": true,
     "env": {
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
+      "plugin:vue/essential"
+      
     ],
     "parserOptions": {
       "parser": "babel-eslint"

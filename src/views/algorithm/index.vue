@@ -43,7 +43,7 @@
                         :data="cloudData"
                         @clickCloud='searchCloud'
                     ></word-cloud-chart>
-                    <RectTree/>
+                    <RectTree @clickCloud='searchCloud'/>
                 </div>
             </el-col>
         </el-row>
