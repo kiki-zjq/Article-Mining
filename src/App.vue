@@ -1,53 +1,68 @@
 <template>
   <div id="app">
-      <SideBar/>
-      <TopBar/>
+      <TopBar />
+      <SideBar class="menu" />
       <div class='view'>
         <router-view/>
       </div>
+       
   </div>
 </template>
 
 <script>
-import SideBar from './layout/sideBar.vue'
-import TopBar from './layout/topBar.vue'
+import SideBar from './layout/menu.vue'
+import TopBar from './layout/header.vue'
 
 export default {
-  name: 'app',
-  components: {
+  name: 'App',
+  data(){
+    return{
+
+    }
+  },
+
+
+  components:{
     SideBar,
-    TopBar,
-  }
-}
+    TopBar
+  },
+};
+
+
 </script>
 
-<style lang="scss">
+<style>
 body{
-  background-color:#f0f3f4;
+  padding: 0;
+  margin: 0;
+  background-color: #f0f3f4;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  /* margin-top: 60px; */
-  margin-left:-20px;
-  box-sizing:border-box;
+  margin-top: 0px;
+  text-align: center;
+  position: relative;
+  /* background-color: #FBFCFE; */
+  box-sizing: border-box;
   min-height:100px;
   width:100vw;
-  position: relative;
-  top:80px;
   background-color: #f0f3f4;
-  //background-color: green;
-  border:#f0f3f4;
 }
+
 .view{
+  box-sizing: border-box;
   background-color: #f0f3f4;
-  //background-color: yellow;
-  // min-height:100vh;
+  /* background-color: yellow;
+  min-height:100vh; */
+  /* border:10px black solid; */
   width:85%;
   position: relative;
-  top:0px;
-  left:220px;
+  top:60px;
+  left:13%;
+  min-height:800px;
+  padding:1px;
 }
 </style>

@@ -1,21 +1,34 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import $ from 'jquery'
 import './plugins/element.js'
-// import $ from 'jquery'
-import VueAxios from 'vue-axios'
-import Qs from 'qs'
 import axios from 'axios'
 import Vuex from 'vuex'
-import echarts from 'echarts'
+import "font-awesome/css/font-awesome.css"
+// import store from './store/index.js'
 
 Vue.use(Vuex)
-Vue.use(VueAxios,axios,Qs)
-// Vue.prototype.$http=axios
-Vue.prototype.$echarts = echarts
+Vue.prototype.$http=axios
 Vue.config.productionTip = false
 
+const store = new Vuex.Store({
+  state:{
+
+    },
+  mutations:{
+
+      },
+  getters: {},
+  actions: {},
+});
+/* eslint-disable no-new */
 new Vue({
+  el: '#app',
   router,
-  render: h => h(App),
-}).$mount('#app')
+  store,
+  components: { App },
+  template: '<App/>'
+})
