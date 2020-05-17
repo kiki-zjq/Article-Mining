@@ -258,7 +258,11 @@ export default {
             float:right;
             margin-right:10px;
         }
+<<<<<<< HEAD:src/view/algorithm/meetCount.vue
     .title-bar .el-button{
+=======
+    .search-bar .el-button{
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5:src/view/algorithm/meetCount.vue
             float:right;
         }
 

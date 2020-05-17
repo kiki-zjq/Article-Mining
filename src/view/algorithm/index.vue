@@ -3,7 +3,11 @@
         <el-row class='search-bar-index'>
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
+<<<<<<< HEAD
                 <span style="background-color:#2da8ff">&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>算法查询</span>
+=======
+                <span style='color:#2da8ff;margin-left:5px'>算法查询</span>
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
                 <el-button type="primary" style="background-color:#2DA8FF;border:#2DA8FF" icon="el-icon-search" @click='search'>搜索</el-button>
                 <el-input v-model="searchWords" placeholder="请输入算法名称查询"></el-input>
             </el-col>
@@ -101,11 +105,16 @@ export default {
 }
 </script>
 
+<<<<<<< HEAD
 <style scoped>
+=======
+<style >
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
     .dashbord {
         text-align: left;
         background-color: #f0f3f4;
         width:100%;
+<<<<<<< HEAD
         padding:20px 0 20px 20px;
         box-sizing: border-box;
     }
@@ -129,11 +138,41 @@ export default {
             text-align: left;
         }
     .search-bar-index .el-input{
+=======
+        padding:20px;
+
+    }
+
+    .dashbord .search-bar-index{
+            margin-left:0;
+            background: #fff;
+        }
+    .search-bar{
+        box-shadow: inset 20px 0px #f0f3f4;
+        box-sizing: border-box;
+        padding:10px;
+        background: #fff;
+        margin: 0 -20px 0 0px;
+
+        width:100%;
+        font-size:18px;
+    }
+
+    .search-bar .el-col {
+            line-height:40px;
+            padding: 0 20px;
+        }
+    .search-bar .el-input{
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
             width:20%;
             float:right;
             margin-right:10px;
         }
+<<<<<<< HEAD
     .search-bar-index .el-button{
+=======
+    .search-bar .el-button{
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
             float:right;
         }
 

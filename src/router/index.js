@@ -6,15 +6,23 @@ import Document from '@/view/document/index.vue'
 import Example from '@/view/example/index.vue'
 import Simulator from '@/view/simulator/index.vue'
 import Contact from '@/view/contact/index.vue'
+<<<<<<< HEAD
 
 import Query from '@/view/query/index.vue'
+=======
+import Query from '@/view/query/index.vue'
+
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
 import Algorithm from '@/view/algorithm/index.vue'
 import Search from '@/view/algorithm/search.vue'
 import MeetCount from '@/view/algorithm/meetCount.vue'
 import YearCount from '@/view/algorithm/yearCount.vue'
 import CompareCount from '@/view/algorithm/compareCount.vue'
+<<<<<<< HEAD
 import Meeting from '@/view/meeting/index.vue'
 
+=======
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
 
 Vue.use(Router)
 
@@ -77,6 +85,7 @@ export default new Router({
         path:'/algorithm/comparecount/:search/:compare',
         component:CompareCount,
     },
+<<<<<<< HEAD
     {
       path:'/meeting',
       component:Meeting,
@@ -84,6 +93,11 @@ export default new Router({
   ],
 
 
+=======
+  ],
+
+
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
   scrollBehavior (to, from, savedPosition) {
     if (to.hash) {
       //console.log(to.hash)

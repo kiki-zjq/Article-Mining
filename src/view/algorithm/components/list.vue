@@ -14,7 +14,11 @@
             <el-table-column
             prop="title"
             label="论文题目"
+<<<<<<< HEAD
             width="500">
+=======
+            width="600">
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5
             </el-table-column>
             
             <el-table-column

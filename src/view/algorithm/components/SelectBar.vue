@@ -54,7 +54,11 @@ export default {
 </script>
 
 
+<<<<<<< HEAD:src/view/algorithm/components/SelectBar.vue
 <style scoped>
+=======
+<style >
+>>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5:src/view/algorithm/components/SelectBar.vue
     .select-place{
         padding-top:10px;
         }
