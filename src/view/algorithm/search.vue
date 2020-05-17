@@ -43,7 +43,7 @@
             </el-col>
             <el-col :span="12">
                <div class='chart-title-right'>在相关会议中的占比</div>
-                <PieChart class='Right-Chart' id='realApply' ></PieChart>
+                <CombineChart class='Right-Chart' id='realApply' ></CombineChart>
             </el-col>
         </el-row>
 
@@ -58,6 +58,7 @@ import CirclePieChart from './components/CirclePieChart';
 import LineChart from './components/LineChart';
 import PieChart from './components/PieChart';
 import WordCloudChart from './components/WordCloudChart';
+import CombineChart from './components/CombineChart';
 import {fetchCloudChart,fetchPieChart,fetchBarChart} from '@/request/api'
 // import {getMeetPercent} from '@/api/searchMeeting.js';
 
@@ -170,6 +171,7 @@ export default {
         LineChart,
         PieChart,
         WordCloudChart,
+        CombineChart
     }
 }
 </script>

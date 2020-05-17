@@ -5,6 +5,7 @@
       <div class='view'>
         <router-view/>
       </div>
+      <!-- <FootPart /> -->
        
   </div>
 </template>
@@ -12,6 +13,7 @@
 <script>
 import SideBar from './layout/menu.vue'
 import TopBar from './layout/header.vue'
+import FootPart from './layout/footer.vue'
 
 export default {
   name: 'App',
@@ -24,7 +26,8 @@ export default {
 
   components:{
     SideBar,
-    TopBar
+    TopBar,
+    FootPart
   },
 };
 
