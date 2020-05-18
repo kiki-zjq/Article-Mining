@@ -16,6 +16,7 @@
         z-index: 999;
     }
     .top .right{
+        box-sizing: border-box;
         border-bottom: black 1px solid;
     }
     .top .left{
@@ -24,7 +25,7 @@
         background:#3A3F51;
         height:50px;
         box-sizing: border-box;
-        border-right: black 1px solid;
+        border-right: white 1px solid;
         border-bottom: black 1px solid;
     }
 </style>

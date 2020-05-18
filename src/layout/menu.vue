@@ -6,7 +6,8 @@
         <el-radio-button :label="true">收起</el-radio-button>
     </el-radio-group> -->
     <div class='icon-title'></div>
-    <el-menu default-active="1" 
+    <el-menu 
+        :default-active="active"
         class="el-menu-vertical-demo" 
         :collapse="isCollapse"
         text-color="#B5B6BD"
@@ -64,7 +65,13 @@
 </template>
 
 <script>
+let active='1';
 export default {
+    data(){
+        return{
+            active,
+        }
+    },
     methods: {
        handleClick(index){
         switch(index){
@@ -76,8 +83,43 @@ export default {
         }
 
       }
-    }
-
+    },
+    watch:{
+    $route(to,from){
+        // alert(to.path)
+        switch(to.path){
+        case '/':
+            this.active='1';return;
+        case '/algorithm':
+            this.active='2';return;
+        case '/meet':
+            this.active='3';return;
+        case '/meeting':
+            this.active='4';break;
+        case '/query':
+            this.active ='5';break;
+        
+            }
+            
+        }
+  },
+  mounted(){
+      
+      switch(this.$route.path){
+        case '/':
+            this.active='1';return;
+        case '/algorithm':
+            this.active='2';return;
+        case '/meet':
+            this.active='3';return;
+        case '/meeting':
+            this.active='4';break;
+        case '/query':
+            this.active ='5';break;
+        
+            }
+        
+        }
 }
 </script>
 
@@ -91,6 +133,7 @@ export default {
     border:#3A3F51;
     z-index: 9;
     text-align: left;
+    border-right: black 1px solid;
     box-sizing: border-box;
   }
 

@@ -3,11 +3,7 @@
         <el-row class='search-bar query-bar'>
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
-<<<<<<< HEAD:src/view/query/index.vue
                 <span style="background-color:#2da8ff">&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>算法查询</span>
-=======
-                <span style="background-color:#2da8ff">&nbsp;</span><span style='color:#2da8ff;margin-left:6px'>算法查询</span>
->>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5:src/view/query/index.vue
                 <el-button type="primary" style="background-color:#2DA8FF;border:#2DA8FF" icon="el-icon-search" @click='search'>搜索</el-button>
                 <el-input v-model="searchWords" placeholder="请输入算法名称查询"></el-input>
             </el-col>
@@ -15,7 +11,7 @@
 
         <el-row class='cloud-place'>
             <el-col :span='24'>
-                <span style='background:#2da8ff'>&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>算法映射</span>
+                <span style='background:#2da8ff;margin-left:-10px'>&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>算法映射</span>
 
     
                 <SelectBar />
@@ -30,11 +26,7 @@
        
         <el-row class="analyse-part">
             <el-col :span='12' class='analyse-left'>
-<<<<<<< HEAD:src/view/query/index.vue
                 <span style="background-color:#2da8ff">&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>算法分析</span>
-=======
-                <span style='color:#2da8ff;margin-left:5px'>算法分析</span>
->>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5:src/view/query/index.vue
 
             </el-col>
     
@@ -75,16 +67,14 @@ export default {
         width:100%;
         padding:20px 0 20px 20px;
         box-sizing: border-box;
+        text-align:left;
     }
 
     .dashbord .search-bar{
-<<<<<<< HEAD:src/view/query/index.vue
             margin-left:0px;
-=======
-            margin-left:-20px;
->>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5:src/view/query/index.vue
         }
     .search-bar{
+        margin-left:0px;
         box-sizing: border-box;
         padding:10px;
         background: #fff;
@@ -110,8 +100,8 @@ export default {
         width:100%;
         box-sizing: border-box;
         padding:20px;
-        padding-left:30px;
-        margin: 20px 0 20px -20px;
+        
+        margin: 20px 0;
         background: #fff;
         min-height:400px;
         font-size:18px;
@@ -119,7 +109,6 @@ export default {
     }
 
 
-<<<<<<< HEAD:src/view/query/index.vue
     .cloud-place .el-col {
             padding: 0 20px;
         }
@@ -131,16 +120,6 @@ export default {
             line-height:30px;
         }
     .cloud-place .el-input__icon{
-=======
-        .cloud-place .select-place{
-            padding-top:10px;
-        }
-        .cloud-place .el-input__inner{
-            height:30px;
-            line-height:30px;
-        }
-        .cloud-place .el-input__icon{
->>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5:src/view/query/index.vue
             line-height:30px;
         }
 
@@ -149,11 +128,7 @@ export default {
         min-height: 400px;
         background-color: #fff;
         width:100%;
-<<<<<<< HEAD:src/view/query/index.vue
         margin-left:0;
-=======
-        margin-left:-20px;
->>>>>>> 1407ff8d6ffabdb6d9f16968993e83a9ff9152e5:src/view/query/index.vue
         text-align:left;
     }
      .analyse-part .analyse-left{

@@ -8,7 +8,8 @@
         </el-row>
 
         <el-row class='conference-place'>
-            <el-carousel :interval="2500" type="card" height="400px" autoplay=true>
+            <!-- <el-col :span='15'>
+            <el-carousel :interval="2500" type="card" height="250px" autoplay=true>
 
                 <el-carousel-item >
                     <div class='blockItem' v-on:click='title="HICSS"'>
@@ -40,29 +41,27 @@
                     </div>
                 </el-carousel-item>
             </el-carousel>
-            <!-- <el-col :span='6'>
-                <div class='blockItem' v-on:click='title="HICSS"'>
+            </el-col> -->
+            
+                <div class='blockItem' @click='handleClick(1)' @mouseenter='handleHover(1)'>
                     <conference-block title="HICSS" theme='blue'></conference-block>
                 </div>
-            </el-col>
-
-            <el-col :span='6'>
-                <div class='blockItem' v-on:click='title="RECYSC"'>
+            
+                <div class='blockItem'  @click='handleClick(2)' @mouseenter='handleHover(2)'>
                     <conference-block title="RECYSC" theme='red' start='2016'></conference-block>
                 </div>
-            </el-col>
-
-            <el-col :span='6'>
-                <div class='blockItem' v-on:click='title="ECIR"'>
+            
+                <div class='blockItem'  @click='handleClick(3)' @mouseenter='handleHover(3)'>
                     <conference-block title="ECIR" theme='cyan' start='2017'></conference-block>
                 </div>
-            </el-col>
-
-            <el-col :span='6'>
-                <div class='blockItem' v-on:click='title="IEEE"'>
+           
+                <div class='blockItem'  @click='handleClick(4)' @mouseenter='handleHover(4)'>
                     <conference-block title="IEEE" theme='orange' start='2018'></conference-block>
                 </div>
-            </el-col> -->
+
+                <div class='blockItem'  @click='handleClick(5)' @mouseenter='handleHover(5)'>
+                    <conference-block title="RECYSC" theme='red' start='2016'></conference-block>
+                </div>
         </el-row>
 
         <el-row class='disp-place'>
@@ -92,6 +91,52 @@ export default {
         ConferenceBlock,
         // ScatterChart,
         RadarChart,
+    },
+    methods:{
+        handleHover(val){
+            switch (val) {
+                case 1:
+                    this.title = 'HICSS';
+                    break;
+            
+                case 2:
+                    this.title = 'RECYSC';
+                    break;
+                case 3:
+                    this.title = 'ECIR';
+                    break;
+
+                case 4:
+                    this.title = 'IEEE';
+                    break;
+
+                case 5:
+                    this.title = 'HICSS';
+                    break;
+            }
+        },
+        handleClick(val){
+            switch (val) {
+                case 1:
+                    this.title = 'ECIR';
+                    break;
+            
+                case 2:
+                    this.title = 'RECYSC';
+                    break;
+                case 3:
+                    this.title = 'ECIR';
+                    break;
+
+                case 4:
+                    this.title = 'IEEE';
+                    break;
+
+                case 5:
+                    this.title = 'HICSS';
+                    break;
+            }
+        }
     },
     computed:{
         introduction(){
@@ -155,10 +200,14 @@ export default {
         box-sizing: border-box;
         padding:10px;
         margin: 20px 0;
-        
-        min-height:400px;
+        /* background-color: white; */
+        /* min-height:400px; */
+       
         font-size:18px;
         text-align:left;
+        overflow-x: auto;
+        overflow-y: hidden;
+         white-space: nowrap;
         }
 
         .conference-place .el-col {
@@ -168,9 +217,24 @@ export default {
         .conference-place .el-col .blockItem {
                 border-radius: 20px;
                 height: 200px;
-                
+                position: relative;
                 }
-    
+        .conference-place div{
+            transition: transform 0.5s;
+        }
+        .conference-place div:hover{
+                    transform: translateY(30px);
+                    cursor: pointer;
+                    
+                }
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    .conference-place div{
+        display: inline-block;
+        margin-right:30px;
+    }
+
     .disp-place{
         margin: 20px 0;
     }

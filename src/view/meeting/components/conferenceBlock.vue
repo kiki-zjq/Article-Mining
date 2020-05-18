@@ -70,11 +70,11 @@ export default {
       },
       width: {
         type: String,
-        default: "100%"
+        default: "300px"
       },
       height: {
         type: String,
-        default: "400px"
+        default: "200px"
       },
       start: {
         type: String,
@@ -118,9 +118,13 @@ section {
   background: #fff;
   overflow: hidden;
   text-align: left;
+  padding-bottom: 40px;
 
 }
-section ::before {
+.el-row{
+  margin-bottom: -20px;
+}
+/* section ::before {
     content: "";
     display: block;
     position: absolute;
@@ -129,7 +133,7 @@ section ::before {
     bottom: 0;
     width: 6px;
     height: 100%;
-  }
+  } */
 .blue{
     background:blue;
     background-image: linear-gradient(#3498db, #2c3e50);
@@ -148,7 +152,7 @@ section ::before {
 }
 .title{
   height:100px;
-  font-size:36px;
+  font-size:24px;
   font-weight: bold;
   color:white;
 }
