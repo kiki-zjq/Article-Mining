@@ -80,422 +80,526 @@ export default {
                 },
                 data: [
     {
-        name:'Java SE',
-        value:'2000',
-        children:[
-            {
-                name:'JVM',  //children里面内容介绍的链接https://blog.csdn.net/TZ845195485/article/details/93238857?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158591779319724843358393%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158591779319724843358393&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-1
-                value:'600',
+        
+            
+                name:'A-C',  
+                value:'200',
 				children:[
                     {
-                        name:'总体架构',
-                        value:'150',
-                    },
-                    {
-                        name:'类加载器的介绍',
-                        value:'150',
+                        name:'A',
+                        value:'100',
 						children:[
 						    {
-							      name:'启动类加载器',
-							      value:'40',
+							      name:'AdaBoost algorithm',
+							      value:'10',
                             },
 							{
-							      name:'扩展类加载器',
-							      value:'60',
+							      name:'ANNs',
+							      value:'30',
                             },
 			       		   {
-							      name:'应用程序类加载器',
-							      value:'30',
+							      name:'approximation algorithm',
+							      value:'122',
                             },
 				           {
-							      name:'用户自定义类加载器',
-							      value:'70',
-                            },
-                                 ]
-                    },
-					{
-                        name:'Execution Engine',
-                        value:'30',
-                    },
-	                {
-                        name:'运行时数据区',
-                        value:'150',
-						children:[
-						    {
-							      name:'程序计数器',
-							      value:'100',
-                            },
-							{
-							      name:'本地方法栈',
-							      value:'100',
-                            },
-			       		   {
-							      name:'虚拟机栈',
-							      value:'130',
-                            },
-                                 ]
-                    },
-                    {
-                        name:'堆',
-                        value:'150',
-						children:[
-						    {
-							      name:'概述',
-							      value:'50',
-                            },
-							{
-							      name:'内存内部结构',
-							      value:'100',
-                            },
-			       		   {
-							      name:'养老区和永久代',
-							      value:'80',
-                            },
-							{
-							      name:'jdk1.7和1.8堆中结构区别',  //详细介绍https://blog.csdn.net/yjph83/article/details/84795856?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158600594419195162527033%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158600594419195162527033&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-4
-							      value:'100',
-                            },
-                                 ]
-                    },
-					{
-                        name:'方法区',
-                        value:'150',
-                    },
-                    {
-                        name:'堆内存调优简介',
-                        value:'150',
-                    },
-					{
-                        name:' 四大垃圾算法GC',
-                        value:'150',
-						children:[
-						    {
-							      name:'引用计数法',
+							      name:'Artificial Neural Networks',
 							      value:'40',
                             },
-							{
-							      name:'复制算法',
-							      value:'60',
-                            },
-			       		   {
-							      name:'标记清除',
-							      value:'30',
-                            },			       		
-							{
-							      name:'标记整理算法',
-							      value:'70',
-                            },
-                                 ]
-                    },
-                ],
-            },
-            {
-                name:'开发工具',
-                value:'400',
-                children:[
-                    {
-                        name:'Eclipse',
-                        value:'100',
-                    },
-                    {
-                        name:'IDEA',
-                        value:'150',
-                    },
-                ],
-            },
-            {
-                name:'数据结构', //附chidren展开的链接https://blog.csdn.net/weixin_43774841/article/details/93366381?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158600643619725211937932%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158600643619725211937932&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-1
-                value:'700',
-                children:[
-				    {
-                        name:'栈',
-                        value:'120',
+                            {
+                                name:'association rules',
+							    value:'20',
+                            }
+                        ]
                     },
 					{
-                        name:'队列',
-                        value:'120',
+                        name:'B',
+                        value:'40',
+                        children:[
+                            {
+                                name:'Back Propagation',
+							    value:'4',
+                            },
+                            {
+                                name:'backward algorithm',
+							    value:'2',
+                            },
+                            {
+                                name:'Batch Gradient Descent',
+							    value:'1',
+                            },
+                            {
+                                name:'Baum-Welch algorithm',
+							    value:'2',
+                            },
+                            {
+                                name:'BFGS algorithm',
+							    value:'4',
+                            },
+                            {
+                                name:'boosting method',
+							    value:'2',
+                            },
+                            {
+                                name:'boosting tree',
+							    value:'1',
+                            }
+                        ]
                     },
                     {
-                        name:'数组',
-                        value:'160',
-                    },
-                    {
-                        name:'链表',
-                        value:'150',
-                    },
-					{
-                        name:'红黑树',
-                        value:'200',
+                        name:'C',
+                        value:'40',
+                        children:[
+                            {
+                                name:'C 4.5',
+							    value:'10',
+                            },
+                            {
+                                name:'CART',
+							    value:'10',
+                            },
+                            {
+                                name:'classification algorithm',
+							    value:'30',
+                            },
+                            {
+                                name:'clustering algorithm',
+							    value:'90',
+                            },
+                            {
+                                name:'conditional random field',
+							    value:'30',
+                            },
+                            {
+                                name:'Convolutional Network',
+							    value:'90',
+                            },
+                            {
+                                name:'CRF',
+							    value:'40',
+                            },
+                            {
+                                name:'cross validation',
+							    value:'20',
+                            }
+                        ]
                     },
                 ]
-            },
-            {
-                name:'基本语法',
-                value:'1000',
-                children:[				    
-				    {
-                        name:'流程控制',
-                        value:'200',
-                    },
-                    {
-                        name:'关键字',        //关键字包含了原有的数据类型这一项
-                        value:'120',
-                    },
-
-                    {
-                        name:'运算符',
-                        value:'100'
-                    },
-                    {
-                        name:'标识符',
-                        value:'100',
-                    },
-					{
-                        name:'注释',
-                        value:'150',
-                    },
-                ]
-
-            },
-            {
-                name:'面向对象',//children链接https://blog.csdn.net/weixin_38689154/article/details/78159273?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158600658719724843318468%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158600658719724843318468&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-1
-                value:'1000',
-                children:[
-                    {
-                        name:'对象与类',
-                        value:'200',
-                    },
-				    {
-                        name:'封装',
-                        value:'200',
-                    },
-                    {
-                        name:'继承',
-                        value:'200',
-                    },
-                    {
-                        name:'多态',
-                        value:'100',
-                    },
-                    {
-                        name:'接口',
-                        value:'200',
-                    },
-					{
-                        name:'内部类',
-                        value:'100',
-                    },				
-				    {
-                        name:'Object类',
-                        value:'50',
-                    },
-					{
-                        name:'包',
-                        value:'50',
-                    },
-                ],
-            },
-			{
-                name:'IO流',
-                value:'400',
-				children:[
-                         {
-                        name:'文件',
-                        value:'100',
-                    },
-				    {
-                        name:'字节流',
-                        value:'200',
-                    },
-                    {
-                        name:'字符流',
-                        value:'200',
-                    },
-                    {
-                        name:'装饰器 ',
-                        value:'100',
-                    },
-                    {
-                        name:'序列化和反序列化',
-                        value:'100',
-                    },
-					{
-                        name:'随机访问文件',
-                        value:'100',
-                    },
-                ],
-            },
-            {
-                name:'多线程',//附chidren展开的链接https://blog.csdn.net/weixin_38689154/article/details/78162026?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158600737819726869021079%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158600737819726869021079&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-1
-                value:'600',
-				children:[
-                         {
-                        name:'概述',
-                        value:'100',
-                    },
-				    {
-                        name:'多线程创建',
-                        value:'200',
-                    },
-                    {
-                        name:'多线程同步',
-                        value:'200',
-                    },
-                    {
-                        name:'多线程死锁',
-                        value:'100',
-                    },
-                    {
-                        name:'多线程通信',
-                        value:'100',
-                    },
-					{
-                        name:'多线程停止',
-                        value:'100',
-                    },
-                ],
-            },
-            {
-                name:'网络编程',//附chidren展开的链接https://blog.csdn.net/weixin_38689154/article/details/78165040?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158600770819724845058737%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158600770819724845058737&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-1
-                value:'300',
-				children:[
-                         {
-                        name:'网络模型概述',
-                        value:'200',
-                    },
-				    {
-                        name:'TCP和UDP协议',
-                        value:'300',
-                    },
-                    {
-                        name:'网络编程其他',
-                        value:'100',
-                    },
-                ],
-            },
-        ]
+	               
 
     },
     //------------------------------为了便于阅读，每个大类之间，写个注释分割开
     {
-        name:'Database',
-        value:'1000',
+        name:'D-E',
+        value:'600',
         children:[
             {
-                name:'Mysql',
-                value:'500'
+                name:'D',
+                value:'200',
+                children:[
+                    {
+                        name:'DBN',
+                        value:'20',
+                    },
+                     {
+                        name:'DBSCAN',
+                        value:'20',
+                    },
+                     {
+                        name:'decision tree',
+                        value:'70',
+                    },
+                    {
+                        name:'deep learning',
+                        value:'150',
+                    },
+                    {
+                        name:'DFP',
+                        value:'10',
+                    },
+                    {
+                        name:'dimensionality reduction algorithm',
+                        value:'10',
+                    },
+                    {
+                        name:'DT',
+                        value:'60',
+                    },
+                    {
+                        name:'dual algorithm',
+                        value:'30',
+                    }
+                ],
             },
             {
-                name:'Redis',
-                value:'600',
-                
-
-            },
-            {
-                name:'MongoDB',
-                value:'400'
+                name:'E',
+                value:'100',
+                children:[
+                     {
+                        name:'EM',
+                        value:'150',
+                    },
+                     {
+                        name:'EM algorithm',
+                        value:'90',
+                    }
+                ]
             },
         ]
     },
 	//--------------------
 {
-        name:'JavaWeb',//附链接
-        value:'1000',
+        name:'F-I',//附链接
+        value:'200',
         children:[
             {
-                name:'Tomcat',
+                name:'F',
                 value:'100',
+                children:[
+                    {
+                        name:'forward stagewise',
+                        value:'10',
+                    }
+                ]
             },
             {
-                name:'Servlet',
-                value:'180',
+                name:'G',
+                value:'200',
+                 children:[
+                    {
+                        name:'Gaussian mixture model',
+                        value:'20',
+                    },
+                    {
+                        name:'GBDT',
+                        value:'10',
+                    },
+                    {
+                        name:'GBM',
+                        value:'10',
+                    },
+                    {
+                        name:'GEM',
+                        value:'10',
+                    },
+                    {
+                        name:'GMM',
+                        value:'30',
+                    },
+                    {
+                        name:'gradient boosting algorithm',
+                        value:'10',
+                    },
+                    {
+                        name:'GSP',
+                        value:'10'
+                    }
+                ]
             },
-			{
-                name:'Requeset',
+            {
+                name:'H',
+                value:'200',
+                 children:[
+                    {
+                        name:'hidden Markov model',
+                        value:'40',
+                    },
+                    {
+                        name:'hierarchical clustering algorithm',
+                        value:'10',
+                    },
+                    {
+                        name:'HITS',
+                        value:'15',
+                    },
+                    {
+                        name:'HMM',
+                        value:'50',
+                    },
+                    {
+                        name:'HNN',
+                        value:'15',
+                    },
+                ]
+            },
+            {
+                name:'I',
                 value:'100',
+                children:[
+                    {
+                        name:'ID3',
+                        value:'10',
+                    },
+                    
+                ]
             },
-			{
-                name:'Responset',
-                value:'100',
-            },
-			{
-                name:'Cookie and Session',
-                value:'100',
-            },
-			{
-                name:'JSP',
-                value:'250',
-            }
+			
         ]
     },
     //--------------------
     {
-        name:'Java 常用框架',//附链接https://blog.csdn.net/guorui_java/article/details/104018528?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158597340519725222444953%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158597340519725222444953&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-3
-        value:'1200',
+        name:'K-M',//附链接https://blog.csdn.net/guorui_java/article/details/104018528?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522158597340519725222444953%2522%252C%2522scm%2522%253A%252220140713.130056874..%2522%257D&request_id=158597340519725222444953&biz_id=0&utm_source=distribute.pc_search_result.none-task-blog-all_SOOPENSEARCH-3
+        value:'800',
         children:[
             {
-                name:'SSH',
-                value:'600',
+                name:'K',
+                value:'100',
                 children:[
                     {
-                        name:'Struts',
-                        value:'600',
+                        name:'kernel methods',
+                        value:'56',
                     },
-					{
-                        name:'Spring',
-                        value:'600',
+                    {
+                        name:'Kernel PCA',
+                        value:'10',
                     },
-					{
-                        name:'Hibernate',
-                        value:'600',
-                    }
+                    {
+                        name:'K-Means',
+                        value:'20',
+                    },
+                    {
+                        name:'k-nearest neighbor',
+                        value:'20',
+                    },
+                    {
+                        name:'kNN',
+                        value:'20',
+                    },
+                    {
+                        name:'K-NN',
+                        value:'20',
+                    },
                 ]
             },
             {
-                name:'SSM',
-                value:'600',
-                children:[
+                name:'L',
+                value:'150',
+                 children:[
                     {
-                        name:'spring',
-                        value:'600',
+                        name:'LDA',
+                        value:'66',
                     },
-					{
-                        name:'SpringMVC',
-                        value:'600',
+                    {
+                        name:'linear regression',
+                        value:'105',
                     },
-					{
-                        name:'mybatis',
-                        value:'600',
-                    }
-					
+                    {
+                        name:'LLE',
+                        value:'10',
+                    },
+                    {
+                        name:'linear support vector machine',
+                        value:'10',
+                    },
+                    {
+                        name:'logistic regression',
+                        value:'93',
+                    },
                 ]
             },
-			{
-                name:'Springboot',
-                value:'600',
-                
-            }
+            {
+                name:'M',
+                value:'130',
+                 children:[
+                    {
+                        name:'Markov random field',
+                        value:'40',
+                    },
+                    {
+                        name:'Mart',
+                        value:'10',
+                    },
+                    {
+                        name:'maximum margin method',
+                        value:'15',
+                    },
+                    {
+                        name:'MDS',
+                        value:'10',
+                    },
+                    {
+                        name:'Mini-Batch Gradient Descent',
+                        value:'10',
+                    },
+                    {
+                        name:'MRF',
+                        value:'32',
+                    },
+                    {
+                        name:'Multi-Dimensional Scaling',
+                        value:'10',
+                    },
+                ]
+            },
+			
         ]
     },
     //-------------------
     {
-        name:'其他',
-        value:'1000',
-        children:[
+        name:'N-R',
+        value:'600',
+       children:[
             {
-                name:'开发相关 Git',
-                value:'700'
+                name:'N',
+                value:'100',
+                children:[
+                    {
+                        name:'Newton method',
+                        value:'20',
+                    },
+                    {
+                        name:'non-linear support vector machine',
+                        value:'10',
+                    },
+                ]
             },
             {
-                name:'机器学习 Machine Learning',
-                value:'400'
+                name:'P',
+                value:'150',
+                 children:[
+                    {
+                        name:'PageRank',
+                        value:'30',
+                    },
+                    {
+                        name:'PCA',
+                        value:'105',
+                    },
+                    {
+                        name:'perceptron algorithm',
+                        value:'10',
+                    },
+                    {
+                        name:'PLS',
+                        value:'10',
+                    },
+                    {
+                        name:'PLSA',
+                        value:'10',
+                    },
+                    {
+                        name:'Principal Component Analysis',
+                        value:'40',
+                    }
+                ]
             },
             {
-                name:'Elastic Search',
-                value:'500'
-            }
-        ]
-    }
+                name:'R',
+                value:'200',
+                 children:[
+                            {
+                                name:'random forest',
+                                value:'40',
+                            },
+                            {
+                                name:'RBF',
+                                value:'10',
+                            },
+                            {
+                                name:'RBN',
+                                value:'15',
+                            },
+                            {
+                                name:'regularization',
+                                value:'200',
+                            },
+                            {
+                                name:'reinforcement learning',
+                                value:'300',
+                            },
+                            {
+                                name:'Restricted Boltzmann Machine',
+                                value:'30',
+                            },
+
+                        ]
+                    },
+                    
+                ]
+            },
+            {
+                name:'S-W',
+                value:'300',
+                children:[
+                    {
+                        name:'S',
+                        value:'150',
+                        children:[
+                            {
+                                name:'Self-Organizing Map',
+                                value:'20',
+                            },
+                            {
+                                name:'semi-supervised learning',
+                                value:'150',
+                            },
+                            {
+                                name:'sequential minimal optimization',
+                                value:'10',
+                            },
+                            {
+                                name:'semi-supervised learning',
+                                value:'100',
+                            },
+                            {
+                                name:'SGD',
+                                value:'120',
+                            },
+                            {
+                                name:'SMO',
+                                value:'10',
+                            },
+                            {
+                                name:'SOM',
+                                value:'10',
+                            },
+                            {
+                                name:'SOM',
+                                value:'10',
+                            },
+                            {
+                                name:'steepest descent',
+                                value:'10',
+                            },
+                            {
+                                name:'Stochastic Gradient Descent',
+                                value:'60',
+                            },
+                            {
+                                name:'supervised learning',
+                                value:'200',
+                            },
+                            {
+                                name:'support vector machines',
+                                value:'50',
+                            },
+                            {
+                                name:'SVM',
+                                value:'150',
+                            },
+                        ]
+                    },
+                    {
+                        name:'T-V',
+                        value:'90',
+                        children:[
+                            {
+                            name:'t-SNE',
+                            value:'30',
+                            },
+                            {
+                                name:'unsupervised learning',
+                            value:'100',
+                            },
+                            {
+                                name:'Viterbi algorithm',
+                            value:'30',
+                            }
+                        ]
+                    },
+                ]
+            },
+            
+
 ],
 
                     levels: [

@@ -9,34 +9,39 @@
                     style="background-color:#2DA8FF;border:#2DA8FF" 
                     icon="el-icon-search" 
                     @click='search'>
-                    直接前往该会议
+                    返回上一级
                 </el-button>
             </el-col>
         </el-row>
 
         <el-row class='count-bar'>
-            <el-col :span='8' class='count-left'>
-                <div class='title'>{{title}}</div>
-                <div class='intro-place'>{{introduction}}</div>
+            <el-col :span='11' class='count-left'>
+                <!-- <div class='title'>{{title}}</div>
+                <div class='intro-place'>{{introduction}}</div> -->
+                <LineChart 
+                    v-loading="loading3"
+                    :data='lineData' 
+                    class='Left-Chart' 
+                    id='recentYear' 
+                    @clickLine='clickLine'>
+                </LineChart>
             </el-col>
-            <el-col :span='12' class='count-middle'>
+            <el-col :span='12' offset="1" class='count-middle'>
                 <CirclePieChart :data='circleData' :width='600' height="380px" @clickPie='clickPie'/>
             </el-col>
-            <el-col :span='4' class='count-right'>
 
-            </el-col>
         </el-row>
 
         <el-row class='title-bar' style='margin-top:20px'>
             <el-col :span='24'>
                 <span style='color:#2da8ff;margin-left:5px'>论文列表</span>
-                <el-button 
+                <!-- <el-button 
                     type="primary" 
                     style="background-color:#2DA8FF;border:#2DA8FF" 
                     icon="el-icon-search" 
                     @click='test'>
                     直接前往该会议
-                </el-button>
+                </el-button> -->
             </el-col>
         </el-row>
 
@@ -64,8 +69,9 @@
 <script>
 import List from './components/list.vue'
 import CirclePieChart from './components/CirclePieChart';
+import LineChart from './components/LineChart';
 import PaperInfo from './components/paperInfo';
-import {fetchPieChart} from '@/request/api'
+import {fetchPieChart,fetchBarChart} from '@/request/api'
 export default {
     data(){
         return{
@@ -74,6 +80,8 @@ export default {
             direction:'rtl',
             paperInfo:{},
             circleData:[],
+            loading3:true,
+            loading1:true,
         }
     },
     mounted(){
@@ -134,7 +142,7 @@ export default {
             time: '2016-05-02'
         },]
         fetchPieChart().then((res)=>{
-
+                    this.loading1=false;
                     this.circleData=[
                         {value: res.data.percentAAAI, name: 'AAAI'},
                         {value: res.data.percentACM, name: 'ACM'},
@@ -143,15 +151,39 @@ export default {
                         {value: res.data.percentACL, name: 'ACL'}
                     ]
                 })
+        fetchBarChart().then((res)=>{
+                    this.loading3=false;
+                    this.lineData = [
+                        res.data.heat2014,res.data.heat2015,res.data.heat2016,
+                        res.data.heat2017,res.data.heat2018,res.data.heat2019
+                    ]
+                    // this.getCloudData();
+                })
     },
     components:{
         List,
         CirclePieChart,
-        PaperInfo
+        PaperInfo,
+        LineChart
     },
     methods:{
         clickPie(params){
             console.log(params)
+        },
+        clickLine(params){
+            const searchWords = this.$route.params.search
+            const year = params.name;
+            this.$router.push(
+                `/algorithm/yearcount/${searchWords}/${year}`,
+            );
+            this.$router.go(0)
+        },
+        search(){
+            const searchWords = this.$route.params.search
+            console.log(searchWords)
+            this.$router.push(
+                `/algorithm/${searchWords}`,
+            );
         },
         check(params){
             console.log(params)
@@ -262,13 +294,14 @@ export default {
             height: 400px;
         }
     .count-bar .count-left{
-            box-shadow: inset -30px 0px #f0f3f4;
+            /* box-shadow: inset -30px 0px #f0f3f4; */
+            padding-top: 30px;
         }
     .count-bar .count-middle{
             padding-top:30px;
         }
     .count-bar .count-right{
-            box-shadow: inset 30px 0px #f0f3f4;
+            /* box-shadow: inset 30px 0px #f0f3f4; */
         }
 
     .list-place{

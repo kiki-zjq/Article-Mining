@@ -4,6 +4,7 @@
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
                 <span style='color:#2da8ff;margin-left:5px'>会议情况分析</span>
+                
                 <el-button 
                     type="primary" 
                     style="background-color:#2DA8FF;border:#2DA8FF" 
@@ -11,32 +12,47 @@
                     @click='search'>
                     直接前往该会议
                 </el-button>
+                <el-button 
+                    type="primary" 
+                    style="background-color:#2DA8FF;border:#2DA8FF;margin-right:2em" 
+                    icon="el-icon-search" 
+                    @click='goback'>
+                    返回上一级
+                </el-button>
             </el-col>
         </el-row>
 
         <el-row class='count-bar'>
-            <el-col :span='8' class='count-left'>
-                <div class='title'>{{title}}</div>
-                <div class='intro-place'>{{introduction}}</div>
-            </el-col>
-            <el-col :span='12' class='count-middle'>
-                <LineChart :data='lineData' :width='600' height="380px" @clickLine='clickLine'/>
-            </el-col>
-            <el-col :span='4' class='count-right'>
+            <el-col :span='10' class='count-left'>
+                <!-- <div class='title'>{{title}}</div>
+                <div class='intro-place'>{{introduction}}</div> -->
+                <CirclePieChart  
+                    v-loading="loading1"
+                    class='Left-Chart' 
+                    :data='circleData'
+                    id='conferenceDistribute' 
+                    @clickPie='clickPie'>
+                </CirclePieChart>
 
             </el-col>
+            <el-col :span='13' :offset='1' class='count-middle'>
+                <LineChart :data='lineData' :width='600' height="380px" @clickLine='clickLine'/>
+            </el-col>
+            <!-- <el-col :span='4' class='count-right'>
+
+            </el-col> -->
         </el-row>
 
         <el-row class='title-bar' style='margin-top:20px'>
             <el-col :span='24'>
                 <span style='color:#2da8ff;margin-left:5px'>论文列表</span>
-                <el-button 
+                <!-- <el-button 
                     type="primary" 
                     style="background-color:#2DA8FF;border:#2DA8FF" 
                     icon="el-icon-search" 
                     @click='test'>
                     直接前往该会议
-                </el-button>
+                </el-button> -->
             </el-col>
         </el-row>
 
@@ -64,7 +80,8 @@
 import List from './components/list.vue'
 import LineChart from './components/LineChart';
 import PaperInfo from './components/paperInfo'
-import {fetchBarChart} from '@/request/api'
+import CirclePieChart from './components/CirclePieChart';
+import {fetchBarChart,fetchPieChart} from '@/request/api'
 export default {
     data(){
         return{
@@ -73,6 +90,8 @@ export default {
             drawer:false,
             direction:'rtl',
             paperInfo:{},
+            circleData:[],
+            loading2:true,
         }
     },
     mounted(){
@@ -141,14 +160,33 @@ export default {
                         res.data.heat2014,res.data.heat2015,res.data.heat2016,
                         res.data.heat2017,res.data.heat2018,res.data.heat2019
                     ]
+                }),
+        fetchPieChart().then((res)=>{
+                    this.loading1=false;
+                    this.circleData=[
+                        {value: res.data.percentAAAI, name: 'AAAI'},
+                        {value: res.data.percentACM, name: 'ACM'},
+                        {value: res.data.percentMK, name: 'MK'},
+                        {value: res.data.percentMIT, name: 'MIT'},
+                        {value: res.data.percentACL, name: 'ACL'}
+                    ]
+                    this.getBarData();
                 })
     },
     components:{
         List,
         LineChart,
         PaperInfo,
+        CirclePieChart
     },
     methods:{
+        goback(){
+            const searchWords = this.$route.params.search
+            console.log(searchWords)
+            this.$router.push(
+                `/algorithm/${searchWords}`,
+            );
+        },
         clickLine(params){
             console.log(params)
         },
@@ -214,7 +252,22 @@ export default {
                 src: '王小虎',
                 time: '2016-05-02'
             },]
-        }
+        },
+        search(){
+            const searchWords = this.$route.params.meeting
+            console.log(searchWords)
+            this.$router.push(
+                `../../../meeting/search=${searchWords}`,
+            );
+        },
+        clickPie(params){
+            const searchWords = this.$route.params.search
+            const meeting = params.name;
+            this.$router.push(
+                `/algorithm/meetingcount/${searchWords}/${meeting}`,
+            );
+            this.$router.go(0);
+        },
     }
 }
 </script>
@@ -271,13 +324,15 @@ export default {
             height: 400px;
         }
     .count-bar .count-left{
-            box-shadow: inset -30px 0px #f0f3f4;
+            /* box-shadow: inset -30px 0px #f0f3f4; */
+            padding-top: 30px;
+            padding-left:60px;
         }
     .count-bar .count-middle{
             padding-top:30px;
         }
     .count-bar .count-right{
-            box-shadow: inset 30px 0px #f0f3f4;
+            /* box-shadow: inset 30px 0px #f0f3f4; */
         }
 
     .list-place{

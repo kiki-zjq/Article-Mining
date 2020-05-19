@@ -3,7 +3,8 @@
         <el-row class='search-bar' :gutter="40">
             <el-col :span='24'>
                 <span style='background:#2da8ff'>&nbsp;</span>
-                <span style='color:#2da8ff;margin-left:5px'>算法查询</span>
+                <span style='color:#2da8ff;margin-left:5px'>算法查询: </span>
+                <span style='color:orange'>{{searchAlg}}</span>
                 <el-button type="primary"  style="background-color:#2DA8FF;border:#2DA8FF" icon="el-icon-search" @click='search'>搜索</el-button>
                 <el-input v-model="searchWords" placeholder="请输入算法名称查询"></el-input>
             </el-col>
@@ -42,7 +43,7 @@
                 </LineChart>
             </el-col>
             <el-col :span="12">
-               <div class='chart-title-right'>在相关会议中的占比</div>
+               <div class='chart-title-right'>与热门算法的对比</div>
                 <CombineChart class='Right-Chart' id='realApply' ></CombineChart>
             </el-col>
         </el-row>
@@ -77,10 +78,10 @@ export default {
         }
     },
     computed:{
-        searchAlgorithm(){
-            const searchWords = this.$route.params.search.split('=')[1];
-            return searchWords;
-        }
+        searchAlg:function(){
+            return this.$route.params.search
+        },
+        
     },
     methods:{
         search(){

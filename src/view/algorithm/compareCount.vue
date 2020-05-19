@@ -4,7 +4,7 @@
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
                 <span style='color:#2da8ff;margin-left:5px'>
-                    <b>{{search}}</b>与<b>{{compare}}</b>对比
+                    <b>{{search}}</b>与<b style="color:orange">{{compare}}</b>对比
                     </span>
                 <el-button 
                     type="primary" 
@@ -32,13 +32,13 @@
         <el-row class='title-bar' style='margin-top:20px'>
             <el-col :span='24'>
                 <span style='color:#2da8ff;margin-left:5px'>论文列表</span>
-                <el-button 
+                <!-- <el-button 
                     type="primary" 
                     style="background-color:#2DA8FF;border:#2DA8FF" 
                     icon="el-icon-search" 
                     @click='test'>
                     直接前往该会议
-                </el-button>
+                </el-button> -->
             </el-col>
         </el-row>
 

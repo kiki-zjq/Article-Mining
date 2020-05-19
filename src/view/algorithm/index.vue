@@ -4,25 +4,25 @@
             <el-col :span='24'>
                 <!-- <span style='background:#2da8ff;width:5px;height:15px;display:inline-block'></span> -->
                 <span style="background-color:#2da8ff">&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>算法查询</span>
-                <el-button type="primary" style="background-color:#2DA8FF;border:#2DA8FF" icon="el-icon-search" @click='search'>搜索</el-button>
-                <el-input v-model="searchWords" placeholder="请输入算法名称查询"></el-input>
+                <!-- <el-button type="primary" style="background-color:#2DA8FF;border:#2DA8FF" icon="el-icon-search" @click='search'>搜索</el-button>
+                <el-input v-model="searchWords" placeholder="请输入算法名称查询"></el-input> -->
             </el-col>
         </el-row>
 
         <el-row class='cloud-place'>
             <el-col :span='24'>
                 <span style='background:#2da8ff'>&nbsp;</span>
-                <span style='color:#2da8ff;margin-left:5px'>算法云图</span>
+                <span style='color:#2da8ff;margin-left:5px'>矩形树图</span>
 
                
-                <SelectBar />
+                <!-- <SelectBar /> -->
                 <div class='cloud-place'>
-                    <word-cloud-chart
+                    <!-- <word-cloud-chart
                         v-loading="loading1"
                         ref="wordCloud"
                         :data="cloudData"
                         @clickCloud='searchCloud'
-                    ></word-cloud-chart>
+                    ></word-cloud-chart> -->
                     <RectTree @clickCloud='searchCloud'/>
                 </div>
             </el-col>

@@ -43,15 +43,15 @@
     </el-menu-item>
 
 
-    <el-menu-item index="3" @click='handleClick(3)'>
+    <!-- <el-menu-item index="3" @click='handleClick(3)'>
         <i class="el-icon-document"></i>
         <span slot="title">会议一</span>
-    </el-menu-item>
+    </el-menu-item> -->
 
 
     <el-menu-item index="4" @click='handleClick(4)'>
         <i class="el-icon-setting"></i>
-        <span slot="title">会议二</span>
+        <span slot="title">会议</span>
     </el-menu-item>
 
     <el-menu-item index="5" @click='handleClick(5)'>
