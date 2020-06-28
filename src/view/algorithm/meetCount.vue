@@ -58,7 +58,7 @@
 
         <el-row class='list-place'>
             <el-col :span='24'>
-                <List :tableData="listData" @pageChange='pageChange' @check='check'/>
+                <List :tableData="listData" :total="total" @pageChange='pageChange' @check='check'/>
             
             </el-col>
         </el-row>
@@ -81,10 +81,11 @@ import List from './components/list.vue'
 import LineChart from './components/LineChart';
 import PaperInfo from './components/paperInfo'
 import CirclePieChart from './components/CirclePieChart';
-import {fetchBarChart,fetchPieChart} from '@/request/api'
+import {fetchBarChart,fetchPieChart,fetchPaper} from '@/request/api'
 export default {
     data(){
         return{
+            total:0,
             lineData:[],
             listData:[],
             drawer:false,
@@ -92,66 +93,77 @@ export default {
             paperInfo:{},
             circleData:[],
             loading2:true,
+            totalData:[],
         }
     },
     mounted(){
-        this.listData =[{
-            index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        }, {
-         index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        }, {
-          index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        }, {
-          index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        },{
-            index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        }, {
-         index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        }, {
-          index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        }, {
-          index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        },{
-          index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        },{
-          index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        },{
-          index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-        },]
-        fetchBarChart().then((res)=>{
+        // this.listData =[{
+        //     index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // }, {
+        //  index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // }, {
+        //   index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // }, {
+        //   index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // },{
+        //     index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // }, {
+        //  index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // }, {
+        //   index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // }, {
+        //   index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // },{
+        //   index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // },{
+        //   index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // },{
+        //   index:'1',
+        //     title: '宇宙无敌第一论文',
+        //     src: '王小虎',
+        //     time: '2016-05-02'
+        // },]
+        const value = this.$route.params.meeting
+        fetchPaper(value).then((res)=>{
+            console.log("Paper info:")
+            console.log(res)
+            this.totalData = res.data
+            //this.listData = res.data
+            this.total = res.data.length
+            this.listData = res.data.slice(0,10)
+
+        })
+        fetchBarChart(value).then((res)=>{
                     console.log(res.data.mapList)
                     // this.cloudData=function(){
                     //     return [...res.data.mapList]
@@ -160,8 +172,8 @@ export default {
                         res.data.heat2014,res.data.heat2015,res.data.heat2016,
                         res.data.heat2017,res.data.heat2018,res.data.heat2019
                     ]
-                }),
-        fetchPieChart().then((res)=>{
+                })
+        fetchPieChart(value).then((res)=>{
                     this.loading1=false;
                     this.circleData=[
                         {value: res.data.percentAAAI, name: 'AAAI'},
@@ -170,7 +182,7 @@ export default {
                         {value: res.data.percentMIT, name: 'MIT'},
                         {value: res.data.percentACL, name: 'ACL'}
                     ]
-                    this.getBarData();
+                    //this.getBarData();
                 })
     },
     components:{
@@ -195,63 +207,8 @@ export default {
             this.drawer='true'
             this.paperInfo = params
         },
-        pageChange(){
-            this.listData =[{
-            index:'1',
-            title: '宇宙无敌第一论文',
-            src: '王小虎',
-            time: '2016-05-02'
-            }, {
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            }, {
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            }, {
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            },{
-                index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            }, {
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            }, {
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            }, {
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            },{
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            },{
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            },{
-            index:'1',
-                title: '这个是第二页',
-                src: '王小虎',
-                time: '2016-05-02'
-            },]
+        pageChange(val){
+            this.listData = this.totalData.slice(10*val-10,10*val)
         },
         search(){
             const searchWords = this.$route.params.meeting

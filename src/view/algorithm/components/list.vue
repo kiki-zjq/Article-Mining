@@ -6,27 +6,28 @@
             style="width: 100%">
 
             <el-table-column
-            prop="index"
+            prop="pid"
             label=" "
             width="60">
             </el-table-column>
             
             <el-table-column
-            prop="title"
+            prop="paperTitle"
             label="论文题目"
             width="500">
             </el-table-column>
             
             <el-table-column
-            prop="src"
+            prop="metTitle"
             label="会议来源"
-            width="300">
+            width="500">
             </el-table-column>
             
             <el-table-column
-            prop="time"
+            prop="year"
             label="发表时间"
-            width="300">
+            width="180"
+            align="center">
             </el-table-column>
             
             <el-table-column
@@ -45,7 +46,9 @@
         
         </el-table>
         <el-pagination
+            :hide-on-single-page="hide"
             layout="prev, pager, next"
+            :page-size="10"
             @current-change="handleCurrentChange"
             :total="total">
         </el-pagination>
@@ -54,6 +57,7 @@
 
 <script>
   export default {
+      
     props:{
         tableData:Array,
         total:{
@@ -63,12 +67,23 @@
     },
     data() {
       return {
+        //  hide:true
         // tableData:[]
       }
+    },
+    computed:{
+        hide:function(){
+            if(this.total>10){
+                return true
+            }else{
+                return false
+            }
+        }
     },
     methods:{
         handleCurrentChange(val){
             this.$emit('pageChange',val)
+            
         },
         handleClick(params){
             this.$emit('check',params)

@@ -91,8 +91,8 @@ export default {
             );
             
         },
-        getPiedata(){
-            fetchPieChart().then((res)=>{
+        getPiedata(val){
+            fetchPieChart(val).then((res)=>{
                     this.loading1=false;
                     this.circleData=[
                         {value: res.data.percentAAAI, name: 'AAAI'},
@@ -101,21 +101,21 @@ export default {
                         {value: res.data.percentMIT, name: 'MIT'},
                         {value: res.data.percentACL, name: 'ACL'}
                     ]
-                    this.getBarData();
+                    this.getBarData(val);
                 })
         },
-        getBarData(){
-            fetchBarChart().then((res)=>{
+        getBarData(val){
+            fetchBarChart(val).then((res)=>{
                     this.loading3=false;
                     this.lineData = [
                         res.data.heat2014,res.data.heat2015,res.data.heat2016,
                         res.data.heat2017,res.data.heat2018,res.data.heat2019
                     ]
-                    this.getCloudData();
+                    this.getCloudData(val);
                 })
         },
-        getCloudData(){
-            fetchCloudChart().then((res)=>{
+        getCloudData(val){
+            fetchCloudChart(val).then((res)=>{
                     this.loading2=false;
                     // this.cloudData=function(){
                     //     return [...res.data.mapList]
@@ -125,8 +125,11 @@ export default {
                     //     if (data.value>10)
                     //         cloudData.push(data)
                     // })
+                    console.log('res.data!!!!!!!!!!!!!!!!!!!!!!!!!')
+                    console.log(res.data)
                     this.cloudData = res.data.mapList
-    
+                    console.log('cloudData!!!!!!!!!!!!!!!!!!!')
+                    console.log(this.cloudData)
                     
                 })
         },
@@ -165,7 +168,8 @@ export default {
         },
     },
     created(){
-            this.getPiedata()
+             const value = this.$route.params.search
+            this.getPiedata(value)
     },
     components:{
         CirclePieChart,
