@@ -13,6 +13,13 @@
                     @click='searchCompare'>
                     直接前往{{compare}}算法
                 </el-button>
+                <el-button 
+                    type="primary" 
+                    style="background-color:#2DA8FF;border:#2DA8FF;margin-right:2em" 
+                    
+                    @click='goback'>
+                    返回上一级
+                </el-button>
             </el-col>
         </el-row>
 
@@ -66,7 +73,7 @@
 import List from './components/list.vue'
 import CompareBar from './components/CompareBar';
 import PaperInfo from './components/paperInfo'
-import {fetchPaper} from '@/request/api'
+import {comparePaper} from '@/request/api'
 export default {
     components:{
         List,
@@ -75,36 +82,33 @@ export default {
     },
     data(){
         return{
+             total:0,
+            lineData:[],
             listData:[],
             drawer:false,
             direction:'rtl',
             paperInfo:{},
-            total:0,
+            circleData:[],
+            loading2:true,
             totalData:[],
         }
     },
     mounted(){
        const value = this.$route.params.search
-       const value2 = this.$route.params.compare
-        fetchPaper(value).then((res)=>{
+       comparePaper(value).then((res)=>{
             console.log("Paper info:")
             console.log(res)
             this.totalData = res.data
             //this.listData = res.data
-            
-            fetchPaper(value2).then((res2)=>{
-
-                this.totalData = this.totalData.concat(res2.data)
-                //this.listData = res.data
-                this.total = this.totalData.length
-                this.listData = this.totalData.slice(0,10)
-
-            })
+            this.total = res.data.length
+            this.listData = res.data.slice(0,10)
 
         })
         
+        
     },
     computed:{
+        
         search:function(){
             return this.$route.params.search
         },
@@ -113,6 +117,13 @@ export default {
         },
     },
     methods:{
+         goback(){
+            const searchWords = this.$route.params.search
+            console.log(searchWords)
+            this.$router.push(
+                `/algorithm/${searchWords}`,
+            );
+        },
         clickLine(params){
             console.log(params)
         },

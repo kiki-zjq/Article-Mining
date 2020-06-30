@@ -78,11 +78,11 @@ export default {
             legend: {
                 orient: 'vertical',
                 left: 10,
-                data: ['AAAI', 'ACM', 'MK', 'MIT', 'ACL']
+                data: ['Sting', 'Supervised', 'Reinforcement', 'Regularization', 'deep learning']
             },
             series: [
                 {
-                    name: '访问来源',
+                    name: '',
                     type: 'pie',
                     radius: ['50%', '70%'],
                     avoidLabelOverlap: false,

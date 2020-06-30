@@ -93,39 +93,39 @@ export default {
         const compare = this.$route.params.compare
         option.dataset.dimensions=['year',search,compare]
         option.dataset.source[0]={
-                    'year':'2013',
-                    [search]:820,
-                    [compare]:230,
+                    'year':'2014',
+                    [search]:2.37,
+                    [compare]:10.85,
                 } 
       option.dataset.source[0]={
-          'year':'2013',
-          [search]:820,
-          [compare]:230,
+          'year':'2014',
+          [search]:2.37,
+          [compare]:10.85,
       }
       option.dataset.source[1]={
-          'year':'2014',
-          [search]:120,
-          [compare]:603,
+          'year':'2015',
+          [search]:1.61,
+          [compare]:7.47,
       }
       option.dataset.source[2]={
-          'year':'2015',
-          [search]:500,
-          [compare]:500,
+          'year':'2016',
+          [search]:1.63,
+          [compare]:7.32,
       }
       option.dataset.source[3]={
-          'year':'2016',
-          [search]:480,
-          [compare]:1230,
+          'year':'2017',
+          [search]:1.93,
+          [compare]:6.99,
       }
       option.dataset.source[4]={
-          'year':'2017',
-          [search]:1000,
-          [compare]:250,
+          'year':'2018',
+          [search]:1.78,
+          [compare]:7.2,
       }
       option.dataset.source[5]={
-          'year':'2018',
-          [search]:1500,
-          [compare]:603,
+          'year':'2019',
+          [search]:0.79,
+          [compare]:7.21,
       }
       this.chart.setOption(option);
       this.chart.on('click',callback)

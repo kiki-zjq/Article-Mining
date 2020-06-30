@@ -95,11 +95,11 @@ export default {
             fetchPieChart(val).then((res)=>{
                     this.loading1=false;
                     this.circleData=[
-                        {value: res.data.percentAAAI, name: 'AAAI'},
-                        {value: res.data.percentACM, name: 'ACM'},
-                        {value: res.data.percentMK, name: 'MK'},
-                        {value: res.data.percentMIT, name: 'MIT'},
-                        {value: res.data.percentACL, name: 'ACL'}
+                        {value: 14, name: 'AAAI'},
+                        {value: 8, name: 'ACM'},
+                        {value: 5, name: 'MK'},
+                        {value: 3, name: 'MIT'},
+                        {value: 2, name: 'ACL'}
                     ]
                     this.getBarData(val);
                 })
@@ -127,7 +127,7 @@ export default {
                     // })
                     console.log('res.data!!!!!!!!!!!!!!!!!!!!!!!!!')
                     console.log(res.data)
-                    this.cloudData = res.data.mapList
+                    this.cloudData = res.data.mapList.splice(0,30)
                     console.log('cloudData!!!!!!!!!!!!!!!!!!!')
                     console.log(this.cloudData)
                     

@@ -79,7 +79,7 @@ import List from './components/list.vue'
 import PaperInfo from './components/paperInfo.vue'
 import CirclePieChart from './components/PieChart.vue'
 import WordCloudChart from './components/WordCloudChart';
-import {fetchCloudChart,fetchPieChart,CircleBarChart,fetchPaper} from '@/request/api'
+import {meetCloud,fetchPieChart,CircleBarChart,fetchPaper} from '@/request/api'
 export default {
 
     data(){
@@ -110,7 +110,7 @@ export default {
             this.listData = res.data.slice(0,10)
 
         })
-        fetchCloudChart(this.meetName).then((res)=>{
+        meetCloud(this.meetName).then((res)=>{
                     this.loading2=false;
                     this.cloudData = res.data.mapList
 
@@ -119,11 +119,11 @@ export default {
         fetchPieChart(this.meetName).then((res)=>{
             this.loading1=false;
                     this.circleData=[
-                        {value: res.data.percentAAAI, name: 'AAAI'},
-                        {value: res.data.percentACM, name: 'ACM'},
-                        {value: res.data.percentMK, name: 'MK'},
-                        {value: res.data.percentMIT, name: 'MIT'},
-                        {value: res.data.percentACL, name: 'ACL'}
+                        {value: 227, name: 'Sting'},
+                        {value: 127, name: 'Supervised'},
+                        {value: 93, name: 'Reinforcement'},
+                        {value: 78, name: 'Regularization'},
+                        {value: 33, name: 'deep learning'}
                     ]
         })
 

@@ -31,7 +31,7 @@
 
         <el-row class='count-bar'>
             <el-col :span='12' class='count-left'>
-                 <span style='background:#2da8ff;margin-left:-30px;'>&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>算法比例</span>
+                 <span style='background:#2da8ff;margin-left:-30px;'>&nbsp;</span><span style='color:#2da8ff;margin-left:5px'>会议比例</span>
                 <CirclePieChart  
                     style="margin-top:20px"
                     v-loading="loading1"
@@ -97,6 +97,16 @@
             </el-col>
 
         </el-row>
+
+        <el-drawer
+            title="论文呈现页"
+            :with-header="false"
+            :visible.sync="drawer"
+            :direction="direction"
+            :before-close="handleClose">
+            <PaperInfo :data='paperInfo'/>
+        </el-drawer>
+
     </div>
 </template>
 
@@ -104,7 +114,9 @@
 import SelectBar from './components/SelectBar'
 import CirclePieChart from './components/CirclePieChart';
 import Form from './components/Form'
-import {fetchBarChart,fetchPieChart,fetchPaper} from '@/request/api'
+import PaperInfo from './components/paperInfo'
+import {fetchBarChart,fetchPieChart,fetchPaper,fetchNew} from '@/request/api'
+
 export default {
     data() {
     return {
@@ -121,10 +133,7 @@ export default {
             circleData:[],
             loading2:true,
             totalData:[],
-             years2: [{
-                value: '2016',
-                label: '2016'
-                }, {
+             years2: [ {
                 value: '2017',
                 label: '2017'
                 }, {
@@ -156,13 +165,18 @@ export default {
     components: {
         SelectBar,
         CirclePieChart,
-        Form
+        Form,
+        PaperInfo
     },
      mounted(){
        
     },
     methods: {
-
+        check(params){
+                    console.log(params)
+                    this.drawer='true'
+                    this.paperInfo = params
+                },
         filter(){
             if(this.total==0&&this.searchWords==''){
                 this.$notify({
@@ -178,6 +192,20 @@ export default {
                 message: '已开始过滤',
                 type: 'success'
                 });
+                fetchNew().then((res)=>{
+                    console.log("Paper info:")
+                    console.log(res)
+                    this.totalData = res.data
+                    //this.listData = res.data
+                    this.total = res.data.length
+                    this.listData = res.data.slice(0,10)
+
+                })
+                this.circleData=[
+                        {value: 6, name: 'AAAI'},
+                        {value: 4, name: 'ACM'},
+                        {value: 2, name: 'ACL'}
+                    ]
             }
 
 
@@ -201,14 +229,17 @@ export default {
           fetchPieChart().then((res)=>{
                     this.loading1=false;
                     this.circleData=[
-                        {value: res.data.percentAAAI, name: 'AAAI'},
-                        {value: res.data.percentACM, name: 'ACM'},
-                        {value: res.data.percentMK, name: 'MK'},
-                        {value: res.data.percentMIT, name: 'MIT'},
-                        {value: res.data.percentACL, name: 'ACL'}
+                        {value: 8, name: 'AAAI'},
+                        {value: 5, name: 'ACM'},
+                        {value: 2, name: 'MK'},
+                        {value: 6, name: 'MIT'},
+                        {value: 3, name: 'ACL'}
                     ]
                     //this.getBarData();
                 })
+        },
+        pageChange(val){
+            this.listData = this.totalData.slice(10*val-10,10*val)
         },
         goback(){
             const searchWords = this.$route.params.search

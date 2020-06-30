@@ -82,7 +82,7 @@ export default {
             },
             series: [
                 {
-                    name: '访问来源',
+                    name: '',
                     type: 'pie',
                     radius: ['50%', '70%'],
                     avoidLabelOverlap: false,

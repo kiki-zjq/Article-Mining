@@ -98,11 +98,11 @@ export default {
         fetchPieChart(value).then((res)=>{
                     this.loading1=false;
                     this.circleData=[
-                        {value: res.data.percentAAAI, name: 'AAAI'},
-                        {value: res.data.percentACM, name: 'ACM'},
-                        {value: res.data.percentMK, name: 'MK'},
-                        {value: res.data.percentMIT, name: 'MIT'},
-                        {value: res.data.percentACL, name: 'ACL'}
+                         {value: 14, name: 'AAAI'},
+                        {value: 8, name: 'ACM'},
+                        {value: 5, name: 'MK'},
+                        {value: 3, name: 'MIT'},
+                        {value: 2, name: 'ACL'}
                     ]
                 })
         fetchBarChart(value).then((res)=>{

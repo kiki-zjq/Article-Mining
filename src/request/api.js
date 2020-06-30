@@ -27,3 +27,19 @@ export function fetchPaper(value) {
     const url =proxy+'/paper/findFigure1Meet?wordCloud='+value+'&year=All'
     return axios.get(url)
 }
+
+export function comparePaper(value) {
+    const url =proxy+'/paper/comparePaper?wordCloud='+value+'&year=All'
+    return axios.get(url)
+}
+
+export function meetCloud(value) {
+    const url =proxy+'/paper/meetCloud?wordCloud='+value+'&year=All'
+    return axios.get(url)
+}
+
+export function fetchNew(value) {
+    const url =proxy+'/paper/paperNew?wordCloud='+value+'&year=All'
+    return axios.get(url)
+}
+
