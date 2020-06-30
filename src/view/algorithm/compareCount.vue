@@ -17,16 +17,16 @@
         </el-row>
 
         <el-row class='count-bar'>
-            <el-col :span='8' class='count-left'>
+            <!-- <el-col :span='8' class='count-left'>
                 <div class='title'>{{title}}</div>
                 <div class='intro-place'>{{introduction}}</div>
-            </el-col>
-            <el-col :span='12' class='count-middle'>
+            </el-col> -->
+            <el-col :span='24' class='count-middle'>
                 <CompareBar :width='600' height="380px" @clickLine='clickLine'/>
             </el-col>
-            <el-col :span='4' class='count-right'>
+            <!-- <el-col :span='4' class='count-right'>
 
-            </el-col>
+            </el-col> -->
         </el-row>
 
         <el-row class='title-bar' style='margin-top:20px'>

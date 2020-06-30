@@ -68,7 +68,7 @@ export default {
       const option = {
                  title:{
                     left: 'center',
-                    text: '2013-2019热度趋势',
+                    text: '2014-2019热度趋势',
                  },
                  tooltip: {
                     trigger: 'axis',

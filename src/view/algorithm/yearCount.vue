@@ -6,8 +6,7 @@
                 <span style='color:#2da8ff;margin-left:5px'>会议情况分析</span>
                 <el-button 
                     type="primary" 
-                    style="background-color:#2DA8FF;border:#2DA8FF" 
-                    icon="el-icon-search" 
+                    style="background-color:#2DA8FF;border:#2DA8FF"  
                     @click='search'>
                     返回上一级
                 </el-button>

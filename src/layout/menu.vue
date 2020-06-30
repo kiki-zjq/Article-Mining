@@ -38,7 +38,7 @@
     </el-menu-item>
 
     <el-menu-item index="2" @click='handleClick(2)'>
-        <i class="el-icon-menu"></i>
+        <i class="el-icon-monitor"></i>
         <span slot="title">算法</span>
     </el-menu-item>
 
@@ -50,12 +50,12 @@
 
 
     <el-menu-item index="4" @click='handleClick(4)'>
-        <i class="el-icon-setting"></i>
+        <i class="el-icon-s-grid"></i>
         <span slot="title">会议</span>
     </el-menu-item>
 
     <el-menu-item index="5" @click='handleClick(5)'>
-        <i class="el-icon-setting"></i>
+        <i class="el-icon-search"></i>
         <span slot="title">查询</span>
     </el-menu-item>
     
