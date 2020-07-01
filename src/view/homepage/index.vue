@@ -36,12 +36,12 @@
             <el-col :span='13'>
                 <div>
                     <h3 class='main-title'>网站介绍</h3>
-                    <p style='text-indent:2em;'>xxx是一个采用数据挖掘技术开发的，可以连接算法，会议和应用场景的网站。xxx不仅可以提供算法，会议和场景的基本信息，并且能够深入分析算法和会议的热度趋势变化，评估会议质量和影响力，根据应用场景推荐合适的算法，甚至把算法，会议和场景联系起来，向用户展示全方位的信息等。</p>
+                    <p style='text-indent:2em;'>AMS Stack是一个采用数据挖掘技术开发的，可以连接算法，会议和应用场景的网站。AMS Stack不仅可以提供算法，会议和场景的基本信息，并且能够深入分析算法和会议的热度趋势变化，评估会议质量和影响力，根据应用场景推荐合适的算法，甚至把算法，会议和场景联系起来，向用户展示全方位的信息等。</p>
                 </div>
             </el-col>
             <el-col :span='9' :offset='1' style='background-color: #f0f3f4;box-shadow: 0 0 0 #e2e2e2;'>
                 <div style='width:100%;margin:-40px auto'>
-                <img src='./logo3.png' width='100%'/>
+                <img src='./logo.png' width='120%'/>
                 </div>
             </el-col>
         </el-row>  
@@ -64,7 +64,7 @@
             <el-col :span='7' :offset='1'>
                 <div class='wrapper' @click='handleClick(3)' @mouseenter='handleHover(3)'>
                     <img src='./query.png' width='100%' @click='handleClick(3)'/>
-                    <div class='inner'>场景页面</div>
+                    <div class='inner'>查询页面</div>
                 </div>
             </el-col>
 
@@ -196,7 +196,7 @@ export default {
 }
 
 .enter .el-col .wrapper:hover{
-    transform: translateY(30px);
+    transform: translateY(15px);
     cursor: pointer;
     
 }
